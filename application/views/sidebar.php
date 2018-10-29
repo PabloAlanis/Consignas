@@ -4,7 +4,19 @@
                 <li class="<?php echo ($path == 'dashboard' ? 'active':''); ?>">
                     <a href="dashboard">
                         <i class="ti-panel"></i>
-                        <p>Dashboard</p>
+                        <p>Inicio</p>
+                    </a>
+                </li>
+                <li class="<?php echo ($path == 'consigna' ? 'active':''); ?>">
+                    <a href="consigna">
+                        <i class="ti-key"></i>
+                        <p>Consigna</p>
+                    </a>
+                </li>
+                <li class="<?php echo ($path == 'operario' ? 'active':''); ?>">
+                    <a href="operario">
+                        <i class="ti-user"></i>
+                        <p>Operario</p>
                     </a>
                 </li>
                 <li class="<?php echo ($path == 'user' ? 'active':''); ?>">
@@ -35,12 +47,6 @@
                     <a href="notifications">
                         <i class="ti-bell"></i>
                         <p>Notifications</p>
-                    </a>
-                </li>
-				<li class="active-pro">
-                    <a href="upgrade">
-                        <i class="ti-export"></i>
-                        <p>Upgrade to PRO</p>
                     </a>
                 </li>
             </ul>
