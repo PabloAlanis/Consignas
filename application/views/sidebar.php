@@ -10,13 +10,19 @@
                 <li class="<?php echo ($path == 'consigna' ? 'active':''); ?>">
                     <a href="consigna">
                         <i class="ti-key"></i>
-                        <p>Consigna</p>
+                        <p>Consignas</p>
                     </a>
                 </li>
                 <li class="<?php echo ($path == 'operario' ? 'active':''); ?>">
                     <a href="operario">
                         <i class="ti-user"></i>
-                        <p>Operario</p>
+                        <p>Operarios</p>
+                    </a>
+                </li>
+                <li class="<?php echo ($path == 'linea' ? 'active':''); ?>">
+                    <a href="linea">
+                        <i class="ti-align-justify"></i>
+                        <p>Lineas</p>
                     </a>
                 </li>
                 <li class="<?php echo ($path == 'user' ? 'active':''); ?>">
