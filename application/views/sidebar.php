@@ -19,8 +19,8 @@
                         <p>Operarios</p>
                     </a>
                 </li>
-                <li class="<?php echo ($path == 'linea' ? 'active':''); ?>">
-                    <a href="linea">
+                <li class="<?php echo ($path == 'linea_controller' ? 'active':''); ?>">
+                    <a href="linea_controller">
                         <i class="ti-align-justify"></i>
                         <p>Lineas</p>
                     </a>
