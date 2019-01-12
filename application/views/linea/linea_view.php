@@ -1,5 +1,5 @@
 
-		<nav class="navbar navbar-default">
+		<nav class="navbar navbar-default" style="position: relative;z-index:0 !important;">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle">
@@ -79,9 +79,48 @@
                                             <td class="text-center"><?php echo $item['abreviLinea']; ?></td>
                                             <td class="text-center"><?php echo $item['obsLinea']; ?></td>
                                             <td class="text-center">
-                                             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModalEditar"><i class="ti-align-justify"></i> Agregar Linea</button>   
-                                            <a href="<?php echo site_url('linea_controller/edit/'.$item['idLinea']); ?>">Editar</a> | 
+                                            <a  href="" data-toggle="modal" data-target="#<?php echo $item['idLinea']; ?>">Editar</a> |  
                                             <a href="linea_controller/remove/<?php echo ($item['idLinea']); ?>">Borrar</a>
+                                            <!-- Modal para editar linea -->
+                                                <div id="<?php echo $item['idLinea']; ?>" class="modal fade" role="dialog" data-backdrop="false" style="position: abolute;z-index:3 !important;">
+                                                  <div class="modal-dialog">
+
+                                                    <!-- Modal content-->
+                                                    <div class="modal-content">
+                                                      <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        <h4 class="modal-title">Editar Linea</h4>
+                                                      </div>
+                                                      <div class="modal-body">
+                                                        <p>Modifica los datos de la linea <?php echo $item['nombreLinea']?>.</p><br><br>
+                                                        <!--formulario-->
+                                                        <?php echo form_open('linea_controller/edit/'.$item['idLinea']); ?>
+                                                        <div class="form-group">
+                                                        <label for="nombreLinea">Nombre</label>
+                                                        <input required type="text" class="form-control" id="nombreLinea" name="nombreLinea" value="<?php echo ($this->input->post('nombreLinea') ? $this->input->post('nombreLinea') : $item['nombreLinea']); ?>" />
+                                                        <small class="form-text">Ingresa el nombre de la linea.</small>
+                                                        </div>
+                                                        <div class="form-group">
+                                                        <label for="abreviLinea">Abreviación</label>
+                                                        <input required type="text" class="form-control" id="abreviLinea" name="abreviLinea" value="<?php echo ($this->input->post('abreviLinea') ? $this->input->post('abreviLinea') : $item['abreviLinea']); ?>" />
+                                                        <small class="form-text">Ingresa la abreviación de la linea.</small>
+                                                        </div>
+                                                        <div class="form-group">
+                                                        <label for="obsLinea">Observación</label>
+                                                        <input type="text" class="form-control" id="obsLinea" name="obsLinea" value="<?php echo ($this->input->post('obsLinea') ? $this->input->post('obsLinea') : $item['obsLinea']); ?>" />
+                                                        <small class="form-text">Ingresa alguna observación sobre la linea.</small>
+                                                        </div>
+                                                      </div>
+                                                      <div class="modal-footer">
+                                                        <button type="submit" onclick="javascript:notificacionModificar();" class="btn btn-default">Modificar</button>
+                                                        <?php echo form_close(); ?> 
+                                                        <!--formulario-->
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                                      </div>
+                                                    </div>
+
+                                                  </div>
+                                                </div>
                                             </td>
                                           </tr>
                                         <?php endforeach;?>
@@ -135,46 +174,11 @@
   </div>
 </div>
 
-<!-- Modal para editar linea -->
-<div id="myModalEditar" class="modal fade" role="dialog" data-backdrop="false">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Editar Linea</h4>
-      </div>
-      <div class="modal-body">
-        <p>Ingresa los datos de la linea <?php echo $item['nombreLinea']?>.</p><br><br>
-        <!--formulario-->
-        <?php echo form_open('linea_controller/edit/'.$linea['idLinea']); ?>
-        <div class="form-group">
-        <label for="nombreLinea">Nombre</label>
-        <input required type="text" class="form-control" id="nombreLinea" name="nombreLinea" value="<?php echo ($this->input->post('nombreLinea') ? $this->input->post('nombreLinea') : $linea['nombreLinea']); ?>" />
-        <small class="form-text">Ingresa el nombre de la linea.</small>
-        </div>
-        <div class="form-group">
-        <label for="abreviLinea">Abreviación</label>
-        <input required type="text" class="form-control" id="abreviLinea" name="abreviLinea" value="<?php echo ($this->input->post('abreviLinea') ? $this->input->post('abreviLinea') : $linea['abreviLinea']); ?>" />
-        <small class="form-text">Ingresa la abreviación de la linea.</small>
-        </div>
-        <div class="form-group">
-        <label for="obsLinea">Observación</label>
-        <input required type="text" class="form-control" id="obsLinea" name="obsLinea" value="<?php echo ($this->input->post('obsLinea') ? $this->input->post('obsLinea') : $linea['obsLinea']); ?>" />
-        <small class="form-text">Ingresa alguna observación sobre la linea.</small>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-default">Modificar</button>
-        <?php echo form_close(); ?> 
-        <!--formulario-->
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-      </div>
-    </div>
-
-  </div>
-</div>
 
 
+<!--estos scripts son solo para las notificaciones al enviar un formulario-->
+<script>
+function notificacionModificar() {
+}
+</script>
 
