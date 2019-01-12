@@ -50,7 +50,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller']   = 'Cidx';
+//rutas del sistema
 $route['linea_controller']   = 'linea_controller';
+$route['linea_controller/remove/(:num)']   = 'linea_controller/remove/$1';
+$route['linea_controller/add']   = 'linea_controller/add';
+$route['linea_controller/edit/(:num)']   = 'linea_controller/edit/$1';
+//
 $route['404_override']         = 'Cidx/page_not_found' ;
 $route['translate_uri_dashes'] = FALSE           ;
 

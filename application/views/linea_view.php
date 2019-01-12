@@ -68,6 +68,7 @@
                                         <th>ID</th>
                                     	<th>Nombre</th>
                                     	<th>Abreviatura</th>
+                                        <th>Observación</th>
                                     </thead>
                                     <tbody>
                                         <?php foreach ($lineas as $item):?>
@@ -75,6 +76,7 @@
                                             <td><?php echo $item['idLinea']; ?></td>
                                             <td><?php echo $item['nombreLinea']; ?></td>
                                             <td><?php echo $item['abreviLinea']; ?></td>
+                                            <td><?php echo $item['obsLinea']; ?></td>
                                           </tr>
                                         <?php endforeach;?>
                                     </tbody>
