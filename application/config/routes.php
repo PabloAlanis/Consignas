@@ -55,6 +55,11 @@ $route['linea_controller']   = 'linea_controller';
 $route['linea_controller/remove/(:num)']   = 'linea_controller/remove/$1';
 $route['linea_controller/add']   = 'linea_controller/add';
 $route['linea_controller/edit/(:num)']   = 'linea_controller/edit/$1';
+
+$route['operario_controller']   = 'operario_controller';
+$route['operario_controller/remove/(:num)']   = 'operario_controller/remove/$1';
+$route['operario_controller/add']   = 'operario_controller/add';
+$route['operario_controller/edit/(:num)']   = 'operario_controller/edit/$1';
 //
 $route['404_override']         = 'Cidx/page_not_found' ;
 $route['translate_uri_dashes'] = FALSE           ;

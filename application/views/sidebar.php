@@ -25,8 +25,8 @@
                         <p>Lineas</p>
                     </a>
                 </li>
-                <li class="<?php echo ($path == 'operario' ? 'active':''); ?>">
-                    <a href="operario">
+                <li class="<?php echo ($path == 'operario_controller' ? 'active':''); ?>">
+                    <a href="operario_controller">
                         <i class="ti-user"></i>
                         <p>Operarios</p>
                     </a>
