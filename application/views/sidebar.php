@@ -9,20 +9,26 @@
                 </li>
                 <li class="<?php echo ($path == 'consigna' ? 'active':''); ?>">
                     <a href="consigna">
-                        <i class="ti-key"></i>
+                        <i class="ti-lock"></i>
                         <p>Consignas</p>
                     </a>
                 </li>
-                <li class="<?php echo ($path == 'operario' ? 'active':''); ?>">
-                    <a href="operario">
-                        <i class="ti-user"></i>
-                        <p>Operarios</p>
+                <li class="<?php echo ($path == 'autorizacion' ? 'active':''); ?>">
+                    <a href="autorizacion">
+                        <i class="ti-key"></i>
+                        <p>Autorización Trabajo</p>
                     </a>
                 </li>
                 <li class="<?php echo ($path == 'linea_controller' ? 'active':''); ?>">
                     <a href="linea_controller">
                         <i class="ti-align-justify"></i>
                         <p>Lineas</p>
+                    </a>
+                </li>
+                <li class="<?php echo ($path == 'operario' ? 'active':''); ?>">
+                    <a href="operario">
+                        <i class="ti-user"></i>
+                        <p>Operarios</p>
                     </a>
                 </li>
                 <li class="<?php echo ($path == 'user' ? 'active':''); ?>">
@@ -37,12 +43,12 @@
                         <p>Table List</p>
                     </a>
                 </li>
-                <li class="<?php echo ($path == 'typography' ? 'active':''); ?>">
+                <!--<li class="<?php echo ($path == 'typography' ? 'active':''); ?>">
                     <a href="typography">
                         <i class="ti-text"></i>
                         <p>Typography</p>
                     </a>
-                </li>
+                </li>-->
                 <li class="<?php echo ($path == 'icons' ? 'active':''); ?>">
                     <a href="icons">
                         <i class="ti-pencil-alt2"></i>

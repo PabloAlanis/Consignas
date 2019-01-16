@@ -10,7 +10,7 @@
                     </button>
                     <a class="navbar-brand" href="#">Lineas</a>
                     <div id="botones">
-                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal"><i class="ti-align-justify"></i> Agregar Linea</button>
+                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal"><i class="ti-pin-alt"></i> Agregar Linea</button>
                     <!--<a href="/linea_controller"><p class="">Logout</p></a>-->
                     </div>
                 </div>
@@ -82,14 +82,14 @@
                                             <a  href="" data-toggle="modal" data-target="#<?php echo $item['idLinea']; ?>">Editar</a> |  
                                             <a href="linea_controller/remove/<?php echo ($item['idLinea']); ?>">Borrar</a>
                                             <!-- Modal para editar linea -->
-                                                <div id="<?php echo $item['idLinea']; ?>" class="modal fade" role="dialog" data-backdrop="false" style="position: abolute;z-index:3 !important;">
+                                                <div id="<?php echo $item['idLinea']; ?>" class="modal fade text-left" role="dialog" data-backdrop="false" style="position: abolute;z-index:3 !important;">
                                                   <div class="modal-dialog">
 
                                                     <!-- Modal content-->
                                                     <div class="modal-content">
                                                       <div class="modal-header">
                                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                        <h4 class="modal-title">Editar Linea</h4>
+                                                        <h4 class="modal-title"><i class="ti-pin-alt"></i> Editar Linea</h4>
                                                       </div>
                                                       <div class="modal-body">
                                                         <p>Modifica los datos de la linea <?php echo $item['nombreLinea']?>.</p><br><br>
@@ -141,7 +141,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Agregar Linea</h4>
+        <h4 class="modal-title"><i class="ti-pin-alt"></i> Agregar Linea</h4>
       </div>
       <div class="modal-body">
         <p>Ingresa los datos de la linea.</p><br><br>
