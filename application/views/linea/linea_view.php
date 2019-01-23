@@ -65,7 +65,7 @@
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-striped">
                                     <thead>
-                                        <th class="text-center">ID</th>
+                                        <!--<th class="text-center">ID</th>-->
                                     	<th class="text-center">Nombre</th>
                                     	<th class="text-center">Abreviatura</th>
                                         <th class="text-center">Observación</th>
@@ -74,7 +74,7 @@
                                     <tbody>
                                         <?php foreach ($lineas as $item):?>
                                           <tr>
-                                            <td class="text-center"><?php echo $item['idLinea']; ?></td>
+                                            <!--<td class="text-center"><?php echo $item['idLinea']; ?></td>-->
                                             <td class="text-center"><?php echo $item['nombreLinea']; ?></td>
                                             <td class="text-center"><?php echo $item['abreviLinea']; ?></td>
                                             <td class="text-center"><?php echo $item['obsLinea']; ?></td>
@@ -97,17 +97,17 @@
                                                         <?php echo form_open('linea_controller/edit/'.$item['idLinea']); ?>
                                                         <div class="form-group">
                                                         <label for="nombreLinea">Nombre</label>
-                                                        <input required type="text" class="form-control" id="nombreLinea" name="nombreLinea" value="<?php echo ($this->input->post('nombreLinea') ? $this->input->post('nombreLinea') : $item['nombreLinea']); ?>" />
+                                                        <input required type="text" class="form-control border-input" id="nombreLinea" name="nombreLinea" value="<?php echo ($this->input->post('nombreLinea') ? $this->input->post('nombreLinea') : $item['nombreLinea']); ?>" />
                                                         <small class="form-text">Ingresa el nombre de la linea.</small>
                                                         </div>
                                                         <div class="form-group">
                                                         <label for="abreviLinea">Abreviación</label>
-                                                        <input required type="text" class="form-control" id="abreviLinea" name="abreviLinea" value="<?php echo ($this->input->post('abreviLinea') ? $this->input->post('abreviLinea') : $item['abreviLinea']); ?>" />
+                                                        <input required type="text" class="form-control border-input" id="abreviLinea" name="abreviLinea" value="<?php echo ($this->input->post('abreviLinea') ? $this->input->post('abreviLinea') : $item['abreviLinea']); ?>" />
                                                         <small class="form-text">Ingresa la abreviación de la linea.</small>
                                                         </div>
                                                         <div class="form-group">
                                                         <label for="obsLinea">Observación</label>
-                                                        <input type="text" class="form-control" id="obsLinea" name="obsLinea" value="<?php echo ($this->input->post('obsLinea') ? $this->input->post('obsLinea') : $item['obsLinea']); ?>" />
+                                                        <input type="text" class="form-control border-input" id="obsLinea" name="obsLinea" value="<?php echo ($this->input->post('obsLinea') ? $this->input->post('obsLinea') : $item['obsLinea']); ?>" />
                                                         <small class="form-text">Ingresa alguna observación sobre la linea.</small>
                                                         </div>
                                                       </div>
@@ -149,17 +149,17 @@
         <?php echo form_open('linea_controller/add'); ?>
         <div class="form-group">
         <label for="nombreLinea">Nombre</label>
-        <input required type="text" class="form-control" id="nombreLinea" name="nombreLinea" value="<?php echo $this->input->post('nombreLinea'); ?>" />
+        <input required type="text" class="form-control border-input" id="nombreLinea" name="nombreLinea" value="<?php echo $this->input->post('nombreLinea'); ?>" />
         <small class="form-text">Ingresa el nombre de la linea.</small>
         </div>
         <div class="form-group">
         <label for="abreviLinea">Abreviación</label>
-        <input required type="text" class="form-control" id="abreviLinea" name="abreviLinea" value="<?php echo $this->input->post('abreviLinea'); ?>" />
+        <input required type="text" class="form-control border-input" id="abreviLinea" name="abreviLinea" value="<?php echo $this->input->post('abreviLinea'); ?>" />
         <small class="form-text">Ingresa la abreviación de la linea.</small>
         </div>
         <div class="form-group">
         <label for="obsLinea">Observación</label>
-        <input required type="text" class="form-control" id="obsLinea" name="obsLinea" value="<?php echo $this->input->post('obsLinea'); ?>" />
+        <input type="text" class="form-control border-input" id="obsLinea" name="obsLinea" value="<?php echo $this->input->post('obsLinea'); ?>" />
         <small class="form-text">Ingresa alguna observación sobre la linea.</small>
         </div>
       </div>

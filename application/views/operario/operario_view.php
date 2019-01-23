@@ -1,4 +1,4 @@
-
+    <!--<script src="static/assets/js/sweetalert2.all.min.js"></script>-->
 		<nav class="navbar navbar-default" style="position: relative;z-index:0 !important;">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -60,12 +60,12 @@
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Listado de Operarios</h4>
-                                <p class="category">En este listado se muestran los operarios del sistema</p>
+                                <p class="category">En este listado se muestran los <?php echo ($cant_operarios); ?> operarios del sistema</p>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-striped">
                                     <thead>
-                                        <th class="text-center">ID</th>
+                                        <!--<th class="text-center">ID</th>-->
                                     	<th class="text-center">Nombre</th>
                                     	<th class="text-center">Apellido</th>
                                         <th class="text-center">Celular</th>
@@ -75,14 +75,14 @@
                                     <tbody>
                                         <?php foreach ($operarios as $item):?>
                                           <tr>
-                                            <td class="text-center"><?php echo $item['idOperario']; ?></td>
+                                            <!--<td class="text-center"><?php echo $item['idOperario']; ?></td>-->
                                             <td class="text-center"><?php echo $item['nombreOperario']; ?></td>
                                             <td class="text-center"><?php echo $item['apellidoOperario']; ?></td>
                                             <td class="text-center"><?php echo $item['celularOperario']; ?></td>
                                             <td class="text-center"><?php echo $item['emailOperario']; ?></td>
                                             <td class="text-center">
                                             <a  href="" data-toggle="modal" data-target="#<?php echo $item['idOperario']; ?>">Editar</a> |  
-                                            <a href="operario_controller/remove/<?php echo ($item['idOperario']); ?>">Borrar</a>
+                                            <a onclick="msjSweetBorrar()"href="operario_controller/remove/<?php echo ($item['idOperario']); ?>">Borrar</a>
                                             <!-- Modal para editar operario -->
                                                 <div id="<?php echo $item['idOperario']; ?>" class="modal fade text-left" role="dialog" data-backdrop="false" style="position: abolute;z-index:3 !important;">
                                                   <div class="modal-dialog">
@@ -99,22 +99,22 @@
                                                         <?php echo form_open('operario_controller/edit/'.$item['idOperario']); ?>
                                                                 <div class="form-group">
                                                                 <label for="nombreOperario">Nombre</label>
-                                                                <input required type="text" class="form-control" id="nombreOperario" name="nombreOperario" value="<?php echo ($this->input->post('nombreOperario') ? $this->input->post('nombreOperario') : $item['nombreOperario']); ?>" />
+                                                                <input required type="text" class="form-control border-input" id="nombreOperario" name="nombreOperario" value="<?php echo ($this->input->post('nombreOperario') ? $this->input->post('nombreOperario') : $item['nombreOperario']); ?>" />
                                                                 <small class="form-text">Ingresa el nombre del operario.</small>
                                                                 </div>
                                                                 <div class="form-group">
                                                                 <label for="apellidoOperario">Apellido</label>
-                                                                <input required type="text" class="form-control" id="apellidoOperario" name="apellidoOperario" value="<?php echo ($this->input->post('apellidoOperario') ? $this->input->post('apellidoOperario') : $item['apellidoOperario']); ?>" />
+                                                                <input required type="text" class="form-control border-input" id="apellidoOperario" name="apellidoOperario" value="<?php echo ($this->input->post('apellidoOperario') ? $this->input->post('apellidoOperario') : $item['apellidoOperario']); ?>" />
                                                                 <small class="form-text">Ingresa el apellido del operario.</small>
                                                                 </div>
                                                                 <div class="form-group">
                                                                 <label for="celularOperario">Celular</label>
-                                                                <input required type="text" class="form-control" id="celularOperario" name="celularOperario" value="<?php echo ($this->input->post('celularOperario') ? $this->input->post('celularOperario') : $item['celularOperario']); ?>" />
+                                                                <input required type="text" class="form-control border-input" id="celularOperario" name="celularOperario" value="<?php echo ($this->input->post('celularOperario') ? $this->input->post('celularOperario') : $item['celularOperario']); ?>" />
                                                                 <small class="form-text">Ingresa el celular del operario.</small>
                                                                 </div>
                                                                 <div class="form-group">
                                                                 <label for="emailOperario">E-mail</label>
-                                                                <input required type="text" class="form-control" id="emailOperario" name="emailOperario" value="<?php echo ($this->input->post('emailOperario') ? $this->input->post('emailOperario') : $item['emailOperario']); ?>" />
+                                                                <input required type="text" class="form-control border-input" id="emailOperario" name="emailOperario" value="<?php echo ($this->input->post('emailOperario') ? $this->input->post('emailOperario') : $item['emailOperario']); ?>" />
                                                                 <small class="form-text">Ingresa el e-mail del operario.</small>
                                                                 </div>
                                                        </div>
@@ -156,27 +156,27 @@
         <?php echo form_open('operario_controller/add'); ?>
 	    <div class="form-group">
         <label for="nombreOperario">Nombre</label>
-        <input required type="text" class="form-control" id="nombreOperario" name="nombreOperario" value="<?php echo $this->input->post('nombreOperario'); ?>" />
+        <input required type="text" class="form-control border-input" id="nombreOperario" name="nombreOperario" value="<?php echo $this->input->post('nombreOperario'); ?>" />
         <small class="form-text">Ingresa el nombre del operario.</small>
         </div>
         <div class="form-group">
         <label for="apellidoOperario">Apellido</label>
-        <input required type="text" class="form-control" id="apellidoOperario" name="apellidoOperario" value="<?php echo $this->input->post('apellidoOperario'); ?>" />
+        <input required type="text" class="form-control border-input" id="apellidoOperario" name="apellidoOperario" value="<?php echo $this->input->post('apellidoOperario'); ?>" />
         <small class="form-text">Ingresa el apellido del operario.</small>
         </div>
         <div class="form-group">
         <label for="celularOperario">Celular</label>
-        <input required type="text" class="form-control" id="celularOperario" name="celularOperario" value="<?php echo $this->input->post('celularOperario'); ?>" />
+        <input required type="text" class="form-control border-input" id="celularOperario" name="celularOperario" value="<?php echo $this->input->post('celularOperario'); ?>" />
         <small class="form-text">Ingresa el celular del operario.</small>
         </div>
         <div class="form-group">
         <label for="emailOperario">E-mail</label>
-        <input type="email" class="form-control" id="emailOperario" name="emailOperario" value="<?php echo $this->input->post('emailOperario'); ?>" />
+        <input type="email" class="form-control border-input" id="emailOperario" name="emailOperario" value="<?php echo $this->input->post('emailOperario'); ?>" />
         <small class="form-text">Ingresa el e-mail del operario.</small>
         </div>
         </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-default">Agregar</button>
+        <button type="submit" class="btn btn-default" onclick="msjSweet()">Agregar</button>
         <?php echo form_close(); ?> 
         <!--formulario-->
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
@@ -185,5 +185,29 @@
 
   </div>
 </div>
+
+
+
+
+
+<script>
+    function msjSweet(){
+    Swal({
+      //position: 'top-end',
+      type: 'success',
+      title: 'Operario creado',
+      showConfirmButton: false,
+      timer: 100000
+     })}
+    
+    function msjSweetBorrar(){
+    Swal({
+      //position: 'top-end',
+      type: 'error',
+      title: 'Operario eliminado.',
+      showConfirmButton: false,
+      timer: 100000
+     })}
+</script>
 
 

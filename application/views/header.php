@@ -3,7 +3,7 @@
 	<link rel="icon" type="image/png" sizes="96x96" href="/static/assets/img/favicon.png">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Paper Dashboard by Creative Tim</title>
+	<title>Consignas!</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -28,3 +28,5 @@
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
     <link href="/static/assets/css/themify-icons.css" rel="stylesheet">
     
+    <!--script y CSS-->
+    <script src="static/assets/js/sweetalert2.all.min.js"></script>

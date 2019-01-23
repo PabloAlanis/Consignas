@@ -26,6 +26,8 @@ class Operario_controller extends CI_Controller
         //carga de las lineas BD
         $all_operarios = $this->operario_model->get_operarios();   
         $data['operarios'] = $all_operarios;
+        $count_operarios = $this->operario_model->count_operario();   
+        $data['cant_operarios'] = $count_operarios;
         //
 		$data['path'] = $path_1;
 		// load dashboard

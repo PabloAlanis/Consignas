@@ -57,4 +57,9 @@ class Operario_model extends CI_Model {
             return $this->db->delete('operario',array('idOperario'=>$idOperario));
         }
     
+        function count_operario()
+        {
+            return $this->db->from('operario')->count_all_results();
+        }
+    
 }
