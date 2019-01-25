@@ -51,7 +51,7 @@
 
 
         <div class="content">
-            <div class="container-fluid">
+            <div class="container-fluid"><p>Estadisticas del Sistema :</p>
                 <div class="row">
                     <div class="col-lg-3 col-sm-6">
                         <div class="card">
@@ -84,13 +84,13 @@
                                 <div class="row">
                                     <div class="col-xs-5">
                                         <div class="icon-big icon-success text-center">
-                                            <i class="ti-wallet"></i>
+                                            <i class="ti-align-justify"></i>
                                         </div>
                                     </div>
                                     <div class="col-xs-7">
                                         <div class="numbers">
-                                            <p>Revenue</p>
-                                            $1,345
+                                            <p>Lineas</p>
+                                            <?php echo ($lineas); ?>
                                         </div>
                                     </div>
                                 </div>

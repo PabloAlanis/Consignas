@@ -10,7 +10,7 @@
                     </button>
                     <a class="navbar-brand" href="#">Lineas</a>
                     <div id="botones">
-                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal"><i class="ti-pin-alt"></i> Agregar Linea</button>
+                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="ti-pin-alt"></i> Agregar Linea</button>
                     <!--<a href="/linea_controller"><p class="">Logout</p></a>-->
                     </div>
                 </div>

@@ -8,9 +8,9 @@
                         <span class="icon-bar bar2"></span>
                         <span class="icon-bar bar3"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Lineas</a>
+                    <a class="navbar-brand" href="#">Autorizaciones de Trabajo</a>
                     <div id="botones">
-                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="ti-pin-alt"></i> Agregar Linea</button>
+                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="ti-pin-alt"></i> Generar A.T</button>
                     <!--<a href="/linea_controller"><p class="">Logout</p></a>-->
                     </div>
                 </div>
@@ -59,23 +59,23 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Listado de Lineas</h4>
-                                <p class="category">En este listado se muestran las lineas registradas</p>
+                                <h4 class="title">Listado de autorizaciones de trabajo</h4>
+                                <p class="category">En este listado se muestran las Autorizaciones de trabajo.</p>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-striped">
                                     <thead>
                                         <!--<th class="text-center">ID</th>-->
-                                    	<th class="text-center">Nombre</th>
+                                    	<th class="text-center">Nro</th>
                                     	<th class="text-center">Abreviatura</th>
                                         <th class="text-center">Observación</th>
                                         <th class="text-center">Acción</th>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($lineas as $item):?>
+                                        <?php foreach ($trabajo as $item):?>
                                           <tr>
-                                            <!--<td class="text-center"><?php echo $item['idLinea']; ?></td>-->
-                                            <td class="text-center"><?php echo $item['nombreLinea']; ?></td>
+                                            <td class="text-center"><?php echo $item['idTrabajo']; ?></td>
+                                            <td class="text-center"><?php echo $item['horaFinTrabajo']; ?></td>
                                             <td class="text-center"><?php echo $item['abreviLinea']; ?></td>
                                             <td class="text-center"><?php echo $item['obsLinea']; ?></td>
                                             <td class="text-center">
@@ -144,24 +144,38 @@
         <h4 class="modal-title"><i class="ti-pin-alt"></i> Agregar Linea</h4>
       </div>
       <div class="modal-body">
-        <p>Ingresa los datos de la linea.</p><br><br>
+        <p>Ingresa los datos de la autorización.</p><br><br>
         <!--formulario-->
-        <?php echo form_open('linea_controller/add'); ?>
-        <div class="form-group">
-        <label for="nombreLinea">Nombre</label>
-        <input required type="text" class="form-control border-input" id="nombreLinea" name="nombreLinea" value="<?php echo $this->input->post('nombreLinea'); ?>" />
-        <small class="form-text">Ingresa el nombre de la linea.</small>
-        </div>
-        <div class="form-group">
-        <label for="abreviLinea">Abreviación</label>
-        <input required type="text" class="form-control border-input" id="abreviLinea" name="abreviLinea" value="<?php echo $this->input->post('abreviLinea'); ?>" />
-        <small class="form-text">Ingresa la abreviación de la linea.</small>
-        </div>
-        <div class="form-group">
-        <label for="obsLinea">Observación</label>
-        <input type="text" class="form-control border-input" id="obsLinea" name="obsLinea" value="<?php echo $this->input->post('obsLinea'); ?>" />
-        <small class="form-text">Ingresa alguna observación sobre la linea.</small>
-        </div>
+            <?php echo form_open('trabajo_controller/add'); ?>
+                
+                <div>
+                    idTrabajo : 
+                    <input type="text" name="idTrabajo" value="<?php echo $this->input->post('idTrabajo'); ?>" />
+                </div>
+                <div>
+                    HoraInicioTrabajo : 
+                    <input type="text" name="horaInicioTrabajo" value="<?php echo $this->input->post('horaInicioTrabajo'); ?>" />
+                </div>
+                <div>
+                    HoraFinTrabajo : 
+                    <input type="text" name="horaFinTrabajo" value="<?php echo $this->input->post('horaFinTrabajo'); ?>" />
+                </div>
+                <div>
+                    IdConsigna : 
+                    <input type="text" name="idConsigna" value="<?php echo $this->input->post('idConsigna'); ?>" />
+                </div>
+                <div>
+                    ResponsableTrabajo : 
+                    <input type="text" name="responsableTrabajo" value="<?php echo $this->input->post('responsableTrabajo'); ?>" />
+                </div>
+                <div>
+                    OperadorTrabajo : 
+                    <input type="text" name="operadorTrabajo" value="<?php echo $this->input->post('operadorTrabajo'); ?>" />
+                </div>
+                <div>
+                    DescripcionTrabajo : 
+                    <input type="text" name="descripcionTrabajo" value="<?php echo $this->input->post('descripcionTrabajo'); ?>" />
+                </div>
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-default">Agregar</button>
@@ -181,4 +195,16 @@
 function notificacionModificar() {
 }
 </script>
+
+
+
+<td><?php echo $t['idTrabajo']; ?></td>
+		<td><?php echo $t['horaInicioTrabajo']; ?></td>
+		<td><?php echo $t['horaFinTrabajo']; ?></td>
+		<td><?php echo $t['idConsigna']; ?></td>
+		<td><?php echo $t['responsableTrabajo']; ?></td>
+		<td><?php echo $t['operadorTrabajo']; ?></td>
+		<td><?php echo $t['descripcionTrabajo']; ?></td>
+
+
 

@@ -56,5 +56,10 @@ class Linea_model extends CI_Model {
     {
         return $this->db->delete('linea',array('idLinea'=>$idLinea));
     }
+    
+    function count_linea()
+    {
+        return $this->db->from('linea')->count_all_results();
+    }
 
 }

@@ -13,6 +13,7 @@ class Cidx extends MY_Controller {
     {
 		parent::__construct();
         $this->load->model('operario_model');
+        $this->load->model('linea_model');
 	}
 		
 	public function index( $path_1=null, 
@@ -32,6 +33,8 @@ class Cidx extends MY_Controller {
         //aca cargo los modelos y los mando ala pagina principal del dashboard
         $all_operarios = $this->operario_model->count_operario();   
         $data['operarios'] = $all_operarios;
+        $all_lineas = $this->linea_model->count_linea();   
+        $data['lineas'] = $all_lineas;
         //
 		$data['path'] = $path_1;
         

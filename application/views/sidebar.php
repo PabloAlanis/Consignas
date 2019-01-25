@@ -13,8 +13,8 @@
                         <p>Consignas</p>
                     </a>
                 </li>
-                <li class="<?php echo ($path == 'autorizacion' ? 'active':''); ?>">
-                    <a href="autorizacion">
+                <li class="<?php echo ($path == 'trabajo_controller' ? 'active':''); ?>">
+                    <a href="trabajo_controller">
                         <i class="ti-key"></i>
                         <p>Autorización Trabajo</p>
                     </a>
@@ -37,12 +37,12 @@
                         <p>User Profile</p>
                     </a>
                 </li>
-                <li class="<?php echo ($path == 'table' ? 'active':''); ?>">
+                <!--<li class="<?php echo ($path == 'table' ? 'active':''); ?>">
                     <a href="table">
                         <i class="ti-view-list-alt"></i>
                         <p>Table List</p>
                     </a>
-                </li>
+                </li>-->
                 <!--<li class="<?php echo ($path == 'typography' ? 'active':''); ?>">
                     <a href="typography">
                         <i class="ti-text"></i>

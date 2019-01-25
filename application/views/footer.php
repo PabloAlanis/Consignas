@@ -35,12 +35,33 @@
                 demo.initChartist();
 
                 $.notify({
-                    icon: 'ti-gift',
-                    message: "Welcome to <b>Paper Dashboard</b> - a beautiful Bootstrap freebie for your next project."
+                    icon: 'ti-lock',
+                    message: "Bienvenido a Consignas!"
 
                 },{
                     type: 'success',
-                    timer: 4000
+                    timer: 99
+                });
+
+            });
+        </script>
+        
+    <?php } ?>
+
+     <?php if ($path == 'linea_view' ) { ?>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+
+                demo.initChartist();
+
+                $.notify({
+                    icon: 'ti-lock',
+                    message: "Lineas."
+
+                },{
+                    type: 'info',
+                    timer: 99
                 });
 
             });
