@@ -10,7 +10,8 @@
                     </button>
                     <a class="navbar-brand" href="#">Autorizaciones de Trabajo</a>
                     <div id="botones">
-                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="ti-pin-alt"></i> Generar A.T</button>
+                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="ti-pin-alt"></i> Generar A.T</button><br>
+                    <strong style="color:#FF0000"><i class="ti-alert"></i>  Hay x Autorizaciones de Trabajo Abiertas. <i class="ti-alert"></i> </strong>
                     <!--<a href="/linea_controller"><p class="">Logout</p></a>-->
                     </div>
                 </div>
@@ -66,56 +67,67 @@
                                 <table class="table table-striped">
                                     <thead>
                                         <!--<th class="text-center">ID</th>-->
-                                    	<th class="text-center">Nro</th>
-                                    	<th class="text-center">Abreviatura</th>
-                                        <th class="text-center">Observación</th>
+                                    	<th class="text-center">ID</th>
+                                    	<th class="text-center">Inicio</th>
+                                        <th class="text-center">Fin</th>
+                                        <th class="text-center">Responsable</th>
+                                        <th class="text-center">Operador</th>
+                                        <th class="text-center">Consigna</th>
+                                        <th class="text-center">Estado</th>
+                                        <th class="text-center">Descripción</th>
                                         <th class="text-center">Acción</th>
                                     </thead>
                                     <tbody>
                                         <?php foreach ($trabajo as $item):?>
                                           <tr>
                                             <td class="text-center"><?php echo $item['idTrabajo']; ?></td>
+                                            <td class="text-center"><?php echo $item['horaInicioTrabajo']; ?></td>
                                             <td class="text-center"><?php echo $item['horaFinTrabajo']; ?></td>
-                                            <td class="text-center"><?php echo $item['abreviLinea']; ?></td>
-                                            <td class="text-center"><?php echo $item['obsLinea']; ?></td>
-                                            <td class="text-center">
-                                            <a  href="" data-toggle="modal" data-target="#<?php echo $item['idLinea']; ?>">Editar</a> |  
-                                            <a href="linea_controller/remove/<?php echo ($item['idLinea']); ?>">Borrar</a>
+                                            <td class="text-center"><?php echo $item['responsableTrabajo']; ?></td>
+                                            <td class="text-center"><?php echo $item['operadorTrabajo']; ?></td>
+                                            <td class="text-center"><?php echo $item['idConsigna']; ?></td>
+                                             <?php
+                                             if (empty($item['horaFinTrabajo'])){
+                                                 echo "<td class='text-center danger'>Abierta</td>";
+                                             }else{
+                                                 echo "<td class='text-center success'>Cerrada</td>";
+                                             }
+                                             ?>  
+                                            <td class="text-center"><?php echo $item['descripcionTrabajo']; ?></td>
+                                            <td class="text-center"> 
+                                            <a  href="" data-toggle="modal" data-target="#<?php echo $item['idTrabajo']; ?>">Ver</a>
                                             <!-- Modal para editar linea -->
-                                                <div id="<?php echo $item['idLinea']; ?>" class="modal fade text-left" role="dialog" data-backdrop="false" style="position: abolute;z-index:3 !important;">
+                                                <div id="<?php echo $item['idTrabajo']; ?>" class="modal fade text-left" role="dialog" data-backdrop="false" style="position: abolute;z-index:3 !important;">
                                                   <div class="modal-dialog">
 
                                                     <!-- Modal content-->
                                                     <div class="modal-content">
                                                       <div class="modal-header">
                                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                        <h4 class="modal-title"><i class="ti-pin-alt"></i> Editar Linea</h4>
+                                                        <h4 class="modal-title"><i class="ti-pin-alt"></i> Detalles de la A.T</h4>
                                                       </div>
                                                       <div class="modal-body">
-                                                        <p>Modifica los datos de la linea <?php echo $item['nombreLinea']?>.</p><br><br>
+                                                        <p>Estos son los datos de la <?php echo $item['idTrabajo']?>.</p>
                                                         <!--formulario-->
-                                                        <?php echo form_open('linea_controller/edit/'.$item['idLinea']); ?>
-                                                        <div class="form-group">
-                                                        <label for="nombreLinea">Nombre</label>
-                                                        <input required type="text" class="form-control border-input" id="nombreLinea" name="nombreLinea" value="<?php echo ($this->input->post('nombreLinea') ? $this->input->post('nombreLinea') : $item['nombreLinea']); ?>" />
-                                                        <small class="form-text">Ingresa el nombre de la linea.</small>
+                                                        <?php echo form_open('trabajo_controller/edit/'.$item['idTrabajo']); ?>
+                                                        <div class="form-group col-md-4">
+                                                        <label for="idTrabajo">Id</label>
+                                                        <input readonly type="text" class="form-control border-input" id="idTrabajo" name="idTrabajo" value="<?php echo ($this->input->post('idTrabajo') ? $this->input->post('idTrabajo') : $item['idTrabajo']); ?>" />
                                                         </div>
-                                                        <div class="form-group">
-                                                        <label for="abreviLinea">Abreviación</label>
-                                                        <input required type="text" class="form-control border-input" id="abreviLinea" name="abreviLinea" value="<?php echo ($this->input->post('abreviLinea') ? $this->input->post('abreviLinea') : $item['abreviLinea']); ?>" />
-                                                        <small class="form-text">Ingresa la abreviación de la linea.</small>
+                                                        <div class="form-group col-md-4">
+                                                        <label for="idTrabajo">Inicio</label>
+                                                        <input readonly type="text" class="form-control border-input" id="horaInicioTrabajo" name="horaInicioTrabajo" value="<?php echo ($this->input->post('horaInicioTrabajo') ? $this->input->post('horaInicioTrabajo') : $item['horaInicioTrabajo']); ?>" />
                                                         </div>
-                                                        <div class="form-group">
-                                                        <label for="obsLinea">Observación</label>
-                                                        <input type="text" class="form-control border-input" id="obsLinea" name="obsLinea" value="<?php echo ($this->input->post('obsLinea') ? $this->input->post('obsLinea') : $item['obsLinea']); ?>" />
-                                                        <small class="form-text">Ingresa alguna observación sobre la linea.</small>
+                                                        <div class="form-group col-md-4">
+                                                        <label for="idTrabajo">Fin</label>
+                                                        <input readonly type="text" class="form-control border-input" id="horaFinTrabajo" name="horaFinTrabajo" value="<?php echo ($this->input->post('horaFinTrabajo') ? $this->input->post('horaFinTrabajo') : $item['horaFinTrabajo']); ?>" />
                                                         </div>
+                                                       
                                                       </div>
                                                       <div class="modal-footer">
-                                                        <button type="submit" onclick="javascript:notificacionModificar();" class="btn btn-default">Modificar</button>
                                                         <?php echo form_close(); ?> 
                                                         <!--formulario-->
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                                                       </div>
                                                     </div>
 
@@ -141,7 +153,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"><i class="ti-pin-alt"></i> Agregar Linea</h4>
+        <h4 class="modal-title"><i class="ti-pin-alt"></i> Generar Autorización de trabajo</h4>
       </div>
       <div class="modal-body">
         <p>Ingresa los datos de la autorización.</p><br><br>
@@ -156,10 +168,7 @@
                     HoraInicioTrabajo : 
                     <input type="text" name="horaInicioTrabajo" value="<?php echo $this->input->post('horaInicioTrabajo'); ?>" />
                 </div>
-                <div>
-                    HoraFinTrabajo : 
-                    <input type="text" name="horaFinTrabajo" value="<?php echo $this->input->post('horaFinTrabajo'); ?>" />
-                </div>
+                
                 <div>
                     IdConsigna : 
                     <input type="text" name="idConsigna" value="<?php echo $this->input->post('idConsigna'); ?>" />
@@ -198,13 +207,6 @@ function notificacionModificar() {
 
 
 
-<td><?php echo $t['idTrabajo']; ?></td>
-		<td><?php echo $t['horaInicioTrabajo']; ?></td>
-		<td><?php echo $t['horaFinTrabajo']; ?></td>
-		<td><?php echo $t['idConsigna']; ?></td>
-		<td><?php echo $t['responsableTrabajo']; ?></td>
-		<td><?php echo $t['operadorTrabajo']; ?></td>
-		<td><?php echo $t['descripcionTrabajo']; ?></td>
 
 
 

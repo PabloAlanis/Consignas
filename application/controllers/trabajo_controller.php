@@ -45,7 +45,7 @@ class Trabajo_controller extends CI_Controller
             $params = array(
                 'idTrabajo' => $this ->input->post('idTrabajo'),
 				'horaInicioTrabajo' => $this->input->post('horaInicioTrabajo'),
-				'horaFinTrabajo' => $this->input->post('horaFinTrabajo'),
+				'horaFinTrabajo' => null,//no ingresa la hora de fin hasta cerrar la A.T
 				'idConsigna' => $this->input->post('idConsigna'),
 				'responsableTrabajo' => $this->input->post('responsableTrabajo'),
 				'operadorTrabajo' => $this->input->post('operadorTrabajo'),
@@ -65,16 +65,17 @@ class Trabajo_controller extends CI_Controller
     /*
      * Editing a trabajo
      */
-    /*function edit($idTrabajo)
+    function edit($idTrabajo)
     {   
         // check if the trabajo exists before trying to edit it
-        $data['trabajo'] = $this->Trabajo_model->get_trabajo($idTrabajo);
+        $data['trabajo'] = $this->trabajo_model->get_trabajo($idTrabajo);
         
         if(isset($data['trabajo']['idTrabajo']))
         {
             if(isset($_POST) && count($_POST) > 0)     
             {   
                 $params = array(
+                    'idTrabajo' => $this ->input->post('idTrabajo'),
 					'horaInicioTrabajo' => $this->input->post('horaInicioTrabajo'),
 					'horaFinTrabajo' => $this->input->post('horaFinTrabajo'),
 					'idConsigna' => $this->input->post('idConsigna'),
@@ -83,8 +84,8 @@ class Trabajo_controller extends CI_Controller
 					'descripcionTrabajo' => $this->input->post('descripcionTrabajo'),
                 );
 
-                $this->Trabajo_model->update_trabajo($idTrabajo,$params);            
-                redirect('trabajo_controller/index');
+                $this->trabajo_model->update_trabajo($idTrabajo,$params);            
+                redirect('trabajo_controller');
             }
             else
             {
@@ -94,7 +95,7 @@ class Trabajo_controller extends CI_Controller
         }
         else
             show_error('The trabajo you are trying to edit does not exist.');
-    } */
+    } 
 
     /*
      * Deleting trabajo
