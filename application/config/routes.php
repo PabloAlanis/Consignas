@@ -64,7 +64,7 @@ $route['operario_controller/edit/(:num)']   = 'operario_controller/edit/$1';
 //autorizaciones de trabajo
 $route['trabajo_controller']='trabajo_controller';
 $route['trabajo_controller/add']   = 'trabajo_controller/add';
-$route['trabajo_controller/edit/(:num)']   = 'trabajo_controller/edit/$1';
+$route['trabajo_controller/edit/(:any)']   = 'trabajo_controller/edit/$1';
 //
 $route['404_override']         = 'Cidx/page_not_found' ;
 $route['translate_uri_dashes'] = FALSE           ;

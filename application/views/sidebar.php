@@ -16,7 +16,7 @@
                 <li class="<?php echo ($path == 'trabajo_controller' ? 'active':''); ?>">
                     <a href="trabajo_controller">
                         <i class="ti-key"></i>
-                        <p>Autorización Trabajo</p>
+                        <p>Autorización Trabajo <br>( <?php echo $trabajo_abiertos; ?> abiertas )</p>
                     </a>
                 </li>
                 <li class="<?php echo ($path == 'linea_controller' ? 'active':''); ?>">

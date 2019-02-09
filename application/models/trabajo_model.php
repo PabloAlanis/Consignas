@@ -24,6 +24,7 @@ class Trabajo_model extends CI_Model
      */
     function get_all_trabajo()
     {
+        $this->db->join('operario', 'trabajo.operadorTrabajo = operario.idOperario');
         $this->db->order_by('idTrabajo', 'desc');
         return $this->db->get('trabajo')->result_array();
     }
@@ -52,5 +53,14 @@ class Trabajo_model extends CI_Model
     function delete_trabajo($idTrabajo)
     {
         return $this->db->delete('trabajo',array('idTrabajo'=>$idTrabajo));
+    }
+    
+    function contar_trabajos(){
+        return $this->db->from('trabajo')->count_all_results();
+    }
+    
+    function contar_trabajos_abiertos(){
+        $this->db->where('horaFinTrabajo',null);
+        return $this->db->from('trabajo')->count_all_results();
     }
 }

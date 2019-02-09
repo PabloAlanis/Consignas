@@ -9,6 +9,7 @@ class Trabajo_controller extends CI_Controller
         $this->load->helper('url');
         $this->load->model('trabajo_model');
         $this->load->model('operario_model');
+        $this->load->model('linea_model');
 	}
 	
 	public function index( $path_1=null, 
@@ -27,6 +28,12 @@ class Trabajo_controller extends CI_Controller
         //carga de las lineas BD
         $all_trabajos = $this->trabajo_model->get_all_trabajo();   
         $data['trabajo'] = $all_trabajos;
+        //cuenta las autorizaciones de trabajo en total
+        $contador_trabajos=$this->trabajo_model->contar_trabajos();
+        $data['contador']=$contador_trabajos;
+        //cuenta las autorizaciones de trabajo abiertas
+        $contador_trabajos_abiertos=$this->trabajo_model->contar_trabajos_abiertos();
+        $data['contador_abiertos']=$contador_trabajos_abiertos;
         //
 		$data['path'] = $path_1;
 		// load dashboard
@@ -38,7 +45,7 @@ class Trabajo_controller extends CI_Controller
     /*
      * Adding a new trabajo
      */
-    function add()
+    public function add()
     {   
         if(isset($_POST) && count($_POST) > 0)     
         {   
@@ -65,7 +72,7 @@ class Trabajo_controller extends CI_Controller
     /*
      * Editing a trabajo
      */
-    function edit($idTrabajo)
+    public function edit($idTrabajo)
     {   
         // check if the trabajo exists before trying to edit it
         $data['trabajo'] = $this->trabajo_model->get_trabajo($idTrabajo);
@@ -77,7 +84,7 @@ class Trabajo_controller extends CI_Controller
                 $params = array(
                     'idTrabajo' => $this ->input->post('idTrabajo'),
 					'horaInicioTrabajo' => $this->input->post('horaInicioTrabajo'),
-					'horaFinTrabajo' => $this->input->post('horaFinTrabajo'),
+					'horaFinTrabajo' => date("Y/m/d G:i:h"),//$this->input->post('horaFinTrabajo'),
 					'idConsigna' => $this->input->post('idConsigna'),
 					'responsableTrabajo' => $this->input->post('responsableTrabajo'),
 					'operadorTrabajo' => $this->input->post('operadorTrabajo'),

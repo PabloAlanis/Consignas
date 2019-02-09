@@ -112,10 +112,10 @@
                                                         </div>
                                                       </div>
                                                       <div class="modal-footer">
-                                                        <button type="submit" onclick="javascript:notificacionModificar();" class="btn btn-default">Modificar</button>
+                                                        <button type="submit" onclick="javascript:notificacionModificar();" class="btn btn-default btn-success">Modificar</button>
                                                         <?php echo form_close(); ?> 
                                                         <!--formulario-->
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                                        <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Cancelar</button>
                                                       </div>
                                                     </div>
 
@@ -164,10 +164,10 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-default">Agregar</button>
+        <button type="submit" class="btn btn-default btn-success">Agregar</button>
         <?php echo form_close(); ?> 
         <!--formulario-->
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Cancelar</button>
       </div>
     </div>
 
