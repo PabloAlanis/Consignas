@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+date_default_timezone_set('America/Argentina/Buenos_Aires');
 //ProductionConfig
 // RECAPTCHA_PUBLIC_KEY  = '6LdhcjsUAAAAAAkKgR5aXpAZyLLSbQIHtjDh8ZQ-' 
 // RECAPTCHA_PRIVATE_KEY = '6LdhcjsUAAAAAMWh3JKfSpdM-W1wGLvPyij1Gaci' 

@@ -34,6 +34,9 @@ class Trabajo_controller extends CI_Controller
         //cuenta las autorizaciones de trabajo abiertas
         $contador_trabajos_abiertos=$this->trabajo_model->contar_trabajos_abiertos();
         $data['contador_abiertos']=$contador_trabajos_abiertos;
+        //carga los select de operarios
+        $all_operarios = $this->operario_model->get_operarios();   
+        $data['operarios'] = $all_operarios;
         //
 		$data['path'] = $path_1;
 		// load dashboard
