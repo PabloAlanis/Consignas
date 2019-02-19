@@ -29,7 +29,7 @@ class Trabajo_model extends CI_Model
         //$this->db->order_by('idTrabajo', 'desc');
         //return $this->db->get('trabajo')->result_array();
         //este query no mezcla los apellidos de responsable y de operador
-        $query='SELECT trabajo.idTrabajo,trabajo.horaInicioTrabajo,trabajo.horaFinTrabajo,trabajo.idConsigna,a1.apellidoOperario AS responsable,a1.nombreOperario AS nombreResponsable,a2.apellidoOperario,a2.nombreOperario from trabajo INNER JOIN operario a1 ON a1.idOperario = trabajo.responsableTrabajo INNER JOIN operario a2 ON a2.idOperario = trabajo.operadorTrabajo ORDER BY trabajo.idTrabajo DESC';
+        $query='SELECT trabajo.responsableTrabajo,trabajo.operadorTrabajo, trabajo.idTrabajo,trabajo.horaInicioTrabajo,trabajo.horaFinTrabajo,trabajo.idConsigna,a1.apellidoOperario AS responsable,a1.nombreOperario AS nombreResponsable,a2.apellidoOperario,a2.nombreOperario from trabajo INNER JOIN operario a1 ON a1.idOperario = trabajo.responsableTrabajo INNER JOIN operario a2 ON a2.idOperario = trabajo.operadorTrabajo ORDER BY trabajo.idTrabajo DESC';
         return $this->db->query($query)->result_array();
     }
         

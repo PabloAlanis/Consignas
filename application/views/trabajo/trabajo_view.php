@@ -253,7 +253,8 @@
                 </div>
                 <div class="form-group col-md-6">
                 <label for="responsableTrabajo">Responsable</label>
-                <select name="responsableTrabajo" id="responsableTrabajo" class="form-control border-input">
+                <select required name="responsableTrabajo" id="responsableTrabajo" class="form-control border-input">
+                <option selected="selected" disabled="disabled"></option>
                 <?php foreach ($operarios as $operario)
                   echo '<option value="'.$operario['idOperario'].'">'.$operario['nombreOperario']." ".$operario['apellidoOperario'].'</option>';   
                 ?>
@@ -262,7 +263,8 @@
                 </div>
                 <div class="form-group col-md-6">
                 <label for="operadorTrabajo">Operario</label>
-                <select name="operadorTrabajo" id="operadorTrabajo" class="form-control border-input">
+                <select required name="operadorTrabajo" id="operadorTrabajo" class="form-control border-input">
+                <option selected="selected" disabled="disabled"></option>
                 <?php foreach ($operarios as $operario)
                   echo '<option value="'.$operario['idOperario'].'">'.$operario['nombreOperario']." ".$operario['apellidoOperario'].'</option>';   
                 ?>
