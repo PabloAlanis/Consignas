@@ -13,19 +13,26 @@
                         <p>Consignas</p>
                     </a>
                 </li>
-                <li class="<?php echo ($path == 'trabajo_controller' ? 'active':''); ?>">
+                <li class="<?php echo ($path == 'trabajo/trabajo_view' ? 'active':''); ?>">
                     <a href="trabajo_controller">
                         <i class="ti-key"></i>
-                        <p>Autorización Trabajo <br>( <?php echo $trabajo_abiertos; ?> abiertas )</p>
+                        <p>Autorización Trabajo <br></p>
+                        <?php 
+                        if ($trabajo_abiertos==1){
+                           echo "( ".$trabajo_abiertos." abierto )";
+                        }else if($trabajo_abiertos>1){
+                           echo "( ".$trabajo_abiertos." abiertos )";
+                        }
+                        ?>
                     </a>
                 </li>
-                <li class="<?php echo ($path == 'linea_controller' ? 'active':''); ?>">
+                <li class="<?php echo ($path == 'linea/linea_view' ? 'active':''); ?>">
                     <a href="linea_controller">
                         <i class="ti-align-justify"></i>
                         <p>Lineas</p>
                     </a>
                 </li>
-                <li class="<?php echo ($path == 'operario_controller' ? 'active':''); ?>">
+                <li class="<?php echo ($path == 'operario/operario_view' ? 'active':''); ?>">
                     <a href="operario_controller">
                         <i class="ti-user"></i>
                         <p>Operarios</p>

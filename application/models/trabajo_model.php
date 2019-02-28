@@ -29,7 +29,16 @@ class Trabajo_model extends CI_Model
         //$this->db->order_by('idTrabajo', 'desc');
         //return $this->db->get('trabajo')->result_array();
         //este query no mezcla los apellidos de responsable y de operador
-        $query='SELECT trabajo.responsableTrabajo,trabajo.operadorTrabajo, trabajo.idTrabajo,trabajo.horaInicioTrabajo,trabajo.horaFinTrabajo,trabajo.idConsigna,a1.apellidoOperario AS responsable,a1.nombreOperario AS nombreResponsable,a2.apellidoOperario,a2.nombreOperario from trabajo INNER JOIN operario a1 ON a1.idOperario = trabajo.responsableTrabajo INNER JOIN operario a2 ON a2.idOperario = trabajo.operadorTrabajo ORDER BY trabajo.idTrabajo DESC';
+        /*$query='SELECT trabajo.idLinea,trabajo.descripcionTrabajo,trabajo.responsableTrabajo,trabajo.operadorTrabajo, trabajo.idTrabajo,trabajo.horaInicioTrabajo,trabajo.horaFinTrabajo,trabajo.idConsigna,a1.apellidoOperario AS responsable,a1.nombreOperario AS nombreResponsable,a2.apellidoOperario,a2.nombreOperario from trabajo INNER JOIN operario a1 ON a1.idOperario = trabajo.responsableTrabajo INNER JOIN operario a2 ON a2.idOperario = trabajo.operadorTrabajo ORDER BY trabajo.horaInicioTrabajo DESC';*/
+        
+        $query='SELECT trabajo.idLinea,trabajo.descripcionTrabajo,trabajo.responsableTrabajo,trabajo.operadorTrabajo, trabajo.idTrabajo,trabajo.horaInicioTrabajo,trabajo.horaFinTrabajo,trabajo.idConsigna,a1.apellidoOperario AS responsable,a1.nombreOperario AS nombreResponsable,a2.apellidoOperario,a2.nombreOperario,a3.abreviLinea AS abreviLinea from trabajo INNER JOIN operario a1 ON a1.idOperario = trabajo.responsableTrabajo INNER JOIN operario a2 ON a2.idOperario = trabajo.operadorTrabajo INNER JOIN linea a3 ON trabajo.idLinea=a3.idLinea ORDER BY trabajo.horaInicioTrabajo DESC';
+        return $this->db->query($query)->result_array();
+    }
+    
+    //este query lista los trabajos abiertos
+    function get_all_trabajo_abiertos()
+    {
+        $query='SELECT trabajo.idLinea,trabajo.descripcionTrabajo,trabajo.responsableTrabajo,trabajo.operadorTrabajo, trabajo.idTrabajo,trabajo.horaInicioTrabajo,trabajo.horaFinTrabajo,trabajo.idConsigna,a1.apellidoOperario AS responsable,a1.nombreOperario AS nombreResponsable,a2.apellidoOperario,a2.nombreOperario,a3.abreviLinea AS abreviLinea from trabajo INNER JOIN operario a1 ON a1.idOperario = trabajo.responsableTrabajo INNER JOIN operario a2 ON a2.idOperario = trabajo.operadorTrabajo INNER JOIN linea a3 ON trabajo.idLinea=a3.idLinea WHERE horaFinTrabajo IS NULL ORDER BY trabajo.horaInicioTrabajo DESC';
         return $this->db->query($query)->result_array();
     }
         
@@ -66,5 +75,15 @@ class Trabajo_model extends CI_Model
     function contar_trabajos_abiertos(){
         $this->db->where('horaFinTrabajo',null);
         return $this->db->from('trabajo')->count_all_results();
+    }
+    
+    function contar_cerrados(){
+        $this->db->where('horaFinTrabajo IS NOT NULL', NULL, FALSE);
+        return $this->db->from('trabajo')->count_all_results();
+    }
+    
+    function contar_anio(){
+        $query="SELECT COUNT(idTrabajo) AS contador FROM trabajo WHERE horaInicioTrabajo BETWEEN '".date("Y")."-01-01 00:00:00' AND '".date("Y")."-12-31 00:00:00' ";
+        return $this->db->query($query)->result_array();
     }
 }

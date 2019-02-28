@@ -38,6 +38,12 @@ class Cidx extends MY_Controller {
         $data['lineas'] = $all_lineas;
         $trabajos_abiertos = $this->trabajo_model->contar_trabajos_abiertos();   
         $data['trabajo_abiertos'] = $trabajos_abiertos;
+        $trabajos_cerrados = $this->trabajo_model->contar_cerrados();   
+        $data['trabajo_cerrados'] = $trabajos_cerrados;
+        $trabajos = $this->trabajo_model->contar_trabajos();   
+        $data['trabajo'] = $trabajos;
+        $trabajos_anio = $this->trabajo_model->contar_anio();   
+        $data['trabajo_anio'] = $trabajos_anio;
         //
 		$data['path'] = $path_1;
         

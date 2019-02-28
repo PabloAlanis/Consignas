@@ -82,7 +82,7 @@
                                             <a  href="" data-toggle="modal" data-target="#<?php echo $item['idLinea']; ?>">Editar</a> |  
                                             <a href="linea_controller/remove/<?php echo ($item['idLinea']); ?>">Borrar</a>
                                             <!-- Modal para editar linea -->
-                                                <div id="<?php echo $item['idLinea']; ?>" class="modal fade text-left" role="dialog" data-backdrop="false" style="position: abolute;z-index:3 !important;">
+                                                <div id="<?php echo $item['idLinea']; ?>" class="modal fade text-left" role="dialog" data-backdrop="false" style="position: abolute;z-index:3 !important;background-color: rgba(0, 0, 0, 0.5);">
                                                   <div class="modal-dialog">
 
                                                     <!-- Modal content-->
@@ -134,7 +134,7 @@
         </div>
 
 <!-- Modal para agregar linea -->
-<div id="myModal" class="modal fade" role="dialog" data-backdrop="false">
+<div id="myModal" class="modal fade" role="dialog" data-backdrop="false" style="position: abolute;z-index:3 !important;background-color: rgba(0, 0, 0, 0.5);">
   <div class="modal-dialog">
 
     <!-- Modal content-->

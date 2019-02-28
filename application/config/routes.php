@@ -63,8 +63,11 @@ $route['operario_controller/add']   = 'operario_controller/add';
 $route['operario_controller/edit/(:num)']   = 'operario_controller/edit/$1';
 //autorizaciones de trabajo
 $route['trabajo_controller']='trabajo_controller';
+$route['trabajo_controller/index_abiertas']='trabajo_controller/index_abiertas';
 $route['trabajo_controller/add']   = 'trabajo_controller/add';
 $route['trabajo_controller/edit/(:any)']   = 'trabajo_controller/edit/$1';
+//
+$route['trabajo_open_controller']='trabajo_open_controller';
 //
 $route['404_override']         = 'Cidx/page_not_found' ;
 $route['translate_uri_dashes'] = FALSE           ;

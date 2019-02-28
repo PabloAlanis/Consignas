@@ -72,7 +72,7 @@
                                 <div class="footer">
                                     <hr />
                                     <div class="stats">
-                                        <i class="ti-reload"></i> <?php setlocale(LC_TIME, 'es_ES.UTF-8'); echo date("D-M-Y");?>
+                                        <i class="ti-bookmark"></i> En total del Sistema.
                                     </div>
                                 </div>
                             </div>
@@ -97,7 +97,7 @@
                                 <div class="footer">
                                     <hr />
                                     <div class="stats">
-                                        <i class="ti-calendar"></i> Last day
+                                        <i class="ti-bookmark"></i> En total del Sistema.
                                     </div>
                                 </div>
                             </div>
@@ -122,7 +122,7 @@
                                 <div class="footer">
                                     <hr />
                                     <div class="stats">
-                                        <i class="ti-timer"></i> In the last hour
+                                        <i class="ti-timer"></i> <?php setlocale(LC_TIME, 'es_ES.UTF-8'); echo date("D-M-Y");?>
                                     </div>
                                 </div>
                             </div>
@@ -154,6 +154,114 @@
                         </div>
                     </div>
                 </div>
+                
+                
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-info text-center">
+                                            <i class="ti-key"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>Autorizaciones Totales</p>
+                                            <?php echo ($trabajo); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr />
+                                    <div class="stats">
+                                        <i class="ti-bookmark"></i> En total del Sistema.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-danger text-center">
+                                            <i class="ti-unlock"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>Autorizaciones Abiertas</p>
+                                            <?php echo ($trabajo_abiertos); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr />
+                                    <div class="stats">
+                                        <i class="ti-bookmark"></i> En total del Sistema.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-success text-center">
+                                            <i class="ti-lock"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>Autorizaciones Cerradas</p>
+                                            <?php echo ($trabajo_cerrados); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr />
+                                    <div class="stats">
+                                        <i class="ti-bookmark"></i> En total del Sistema.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-black text-center">
+                                            <i class="ti-key"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>Autorizaciones en <?php setlocale(LC_TIME, 'es_ES.UTF-8'); echo date("Y");?></p>
+                                            <?php echo ($trabajo_anio); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr />
+                                    <div class="stats">
+                                        <i class="ti-calendar"></i> <?php setlocale(LC_TIME, 'es_ES.UTF-8'); echo date("Y");?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+                
                 <div class="row">
 
                     <div class="col-md-12">

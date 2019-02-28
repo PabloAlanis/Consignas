@@ -8,6 +8,7 @@ class Linea_controller extends CI_Controller
         parent::__construct();
         $this->load->helper('url');
         $this->load->model('linea_model');
+        $this->load->model('trabajo_model');
 	}
 	
 	public function index( $path_1=null, 
@@ -26,6 +27,9 @@ class Linea_controller extends CI_Controller
         //carga de las lineas BD
         $all_lineas = $this->linea_model->get_lineas();   
         $data['lineas'] = $all_lineas;
+        //cargo las autorizaciones abiertas
+        $trabajos_abiertos = $this->trabajo_model->contar_trabajos_abiertos();   
+        $data['trabajo_abiertos'] = $trabajos_abiertos;
         //
 		$data['path'] = $path_1;
 		// load dashboard

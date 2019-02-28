@@ -9,10 +9,6 @@
                         <span class="icon-bar bar3"></span>
                     </button>
                     <a class="navbar-brand" href="#">Autorizaciones de Trabajo</a>
-                    <div id="botones">
-                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="ti-pin-alt"></i> Generar A.T</button><br>
-                    <!--<a href="/linea_controller"><p class="">Logout</p></a>-->
-                    </div>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -48,6 +44,14 @@
                     </ul>
 
                 </div>
+                <div class="col-md-12" id="botones">
+                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="ti-pin-alt"></i> Generar A.T</button>
+                    <a href="trabajo_open_controller" class="btn btn-danger"><i class="ti-unlock"></i> Mostrar A.T Abiertas</a>
+                    <a href="trabajo_controller" class="btn btn-success"><i class="ti-lock"></i> Mostrar todas las A.T</a>
+                        
+                    <br>
+                    <!--<a href="/linea_controller"><p class="">Logout</p></a>-->
+                    </div>
             </div>
         </nav>
 
@@ -63,9 +67,9 @@
                                 <p class="category">En este listado se muestran las Autorizaciones de trabajo.</p>
                                 <?php
                                  if ($contador_abiertos > 0 && $contador_abiertos!==1){
-                                     echo "<strong><i class='ti-alert'></i>  Hay ".$contador_abiertos." Autorizaciones de Trabajo Abiertas. <i class='ti-alert'></i> </strong>";
+                                     echo "<i class='ti-alert'></i>  Hay ".$contador_abiertos." Autorizaciones de Trabajo Abiertas.  ";
                                     }else if($contador_abiertos ==1){
-                                     echo "<strong><i class='ti-alert'></i>  Hay ".$contador_abiertos." Autorización de Trabajo Abierta. <i class='ti-alert'></i> </strong>";
+                                     echo "<i class='ti-alert'></i>  Hay ".$contador_abiertos." Autorización de Trabajo Abierta.  ";
                                     }
                                 ?>
                             </div>
@@ -79,6 +83,7 @@
                                         <th class="text-center">Responsable</th>
                                         <th class="text-center">Operador</th>
                                         <th class="text-center">Consigna</th>
+                                        <th class="text-center">Linea</th>
                                         <th class="text-center">Estado</th>
                                         <!--<th class="text-center">Descripción</th>-->
                                         <th class="text-center">Acción</th>
@@ -98,6 +103,15 @@
                                                  echo "<td class='text-center'>".$item['idConsigna']."</td>";
                                              }
                                              ?> 
+                                            
+                                             <?php
+                                             if (empty($item['idLinea'])){
+                                                 echo "<td class='text-center'>-</td>";
+                                             }else{
+                                                 echo "<td class='text-center'>".$item['abreviLinea']."</td>";
+                                             }
+                                             ?>
+                                              
                                              <?php
                                              if (empty($item['horaFinTrabajo'])){
                                                  echo "<td class='text-center danger'><i class='ti-unlock'></i> Abierta</td>";
@@ -115,7 +129,7 @@
                                              }
                                              ?> 
                                             <!-- Modal para ver trabajo -->
-                                                <div id="<?php echo $item['idTrabajo']; ?>Ver" class="modal fade text-left" role="dialog" data-backdrop="false" style="position: abolute;z-index:3 !important;">
+                                                <div id="<?php echo $item['idTrabajo']; ?>Ver" class="modal fade text-left" role="dialog" data-backdrop="false" style="position: abolute;z-index:3 !important;background-color: rgba(0, 0, 0, 0.5);">
                                                   <div class="modal-dialog">
                                                     <!-- Modal content-->
                                                     <div class="modal-content">
@@ -140,6 +154,9 @@
                                                         <p>Consigna: <?php echo $item['idConsigna']?></p>
                                                         </div>
                                                         <div class="form-group col-md-12 text-center">
+                                                        <p>Linea: <?php echo $item['abreviLinea']?></p>
+                                                        </div>
+                                                        <div class="form-group col-md-12 text-center">
                                                         <p>Responsable: <?php echo $item['responsable']?><?php echo " ".$item['nombreResponsable']?></p>
                                                         </div>
                                                         <div class="form-group col-md-12 text-center">
@@ -161,7 +178,7 @@
                                                 <!--fin modal-->    
                                                 
                                                 <!-- Modal para cerrar trabajo -->
-                                                <div id="<?php echo $item['idTrabajo']; ?>" class="modal fade text-left" role="dialog" data-backdrop="false" style="position: abolute;z-index:3 !important;">
+                                                <div id="<?php echo $item['idTrabajo']; ?>" class="modal fade text-left" role="dialog" data-backdrop="false" style="position: abolute;z-index:3 !important;background-color: rgba(0, 0, 0, 0.5);">
                                                   <div class="modal-dialog">
 
                                                     <!-- Modal content-->
@@ -192,6 +209,10 @@
                                                         <input  type="text" class="form-control border-input" id="responsableTrabajo" name="responsableTrabajo" value="<?php echo ($this->input->post('responsableTrabajo') ? $this->input->post('responsableTrabajo') : $item['responsableTrabajo']); ?>" />
                                                         </div>
                                                         <div hidden class="form-group col-md-4">
+                                                        <label for="idLinea">idLinea</label>
+                                                        <input  type="text" class="form-control border-input" id="idLinea" name="idLinea" value="<?php echo ($this->input->post('idLinea') ? $this->input->post('idLinea') : $item['idLinea']); ?>" />
+                                                        </div>
+                                                        <div hidden class="form-group col-md-4">
                                                         <label for="operadorTrabajo">operadorTrabajo</label>
                                                         <input  type="text" class="form-control border-input" id="operadorTrabajo" name="operadorTrabajo" value="<?php echo ($this->input->post('operadorTrabajo') ? $this->input->post('operadorTrabajo') : $item['operadorTrabajo']); ?>" />
                                                         </div>
@@ -201,10 +222,10 @@
                                                         </div>
                                                       </div>
                                                       <div class="modal-footer">
-                                                        <button type="submit" class="btn btn-danger btn-lg">Cerrar Autorización</button>
+                                                        <button type="submit" class="btn btn-danger">Cerrar Autorización</button>
                                                         <?php echo form_close(); ?> 
                                                         <!--formulario-->
-                                                        <button type="button" class="btn btn-success btn-lg" data-dismiss="modal">Todavia no</button>
+                                                        <button type="button" class="btn btn-success" data-dismiss="modal">Todavia no</button>
                                                       </div>
                                                     </div>
 
@@ -224,7 +245,7 @@
         </div>
 
 <!-- Modal para generar autorizacion de trabajo -->
-<div id="myModal" class="modal fade" role="dialog" data-backdrop="false">
+<div id="myModal" class="modal fade" role="dialog" data-backdrop="false" style="position: abolute;z-index:3 !important;background-color: rgba(0, 0, 0, 0.5);">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -246,11 +267,24 @@
                     HoraInicioTrabajo : 
                     <input type="datetime" name="horaInicioTrabajo" value="<?php echo date("Y/m/d G:i:h ")?><?php echo $this->input->post('horaInicioTrabajo'); ?>" />
                 </div>              
-                <div class="form-group">
+                <div class="form-group col-md-6">
                 <label for="idConsigna">Consigna</label>
                 <input type="text" class="form-control border-input" name="idConsigna" id="idConsigna" value="<?php echo $this->input->post('idConsigna'); ?>" />
-                <small class="form-text">Indica si la autorización perteneze a una consigna.</small>
+                <small class="form-text">La autorización perteneze a una consigna?</small>
                 </div>
+          
+                <div class="form-group col-md-6">
+                <label for="idLinea">Linea</label>
+                <select required name="idLinea" id="idLinea" class="form-control border-input">
+                <option selected="selected" disabled="disabled"></option>
+                <!--<option value="">No es sobre ninguna Linea</option>    -->
+                <?php foreach ($linea as $lineas)
+                  echo '<option value="'.$lineas['idLinea'].'">'.$lineas['abreviLinea'].'</option>';   
+                ?>
+                </select>
+                <small class="form-text">Selecciona si es sobre una linea.</small>    
+                </div>
+          
                 <div class="form-group col-md-6">
                 <label for="responsableTrabajo">Responsable</label>
                 <select required name="responsableTrabajo" id="responsableTrabajo" class="form-control border-input">
@@ -290,11 +324,6 @@
 
 
 
-<!--estos scripts son solo para las notificaciones al enviar un formulario-->
-<script>
-function notificacionModificar() {
-}
-</script>
 
 
 
