@@ -7,8 +7,8 @@
                         <p>Inicio</p>
                     </a>
                 </li>
-                <li class="<?php echo ($path == 'consigna' ? 'active':''); ?>">
-                    <a href="consigna">
+                <li class="<?php echo ($path == 'consigna/consigna_view' ? 'active':''); ?>">
+                    <a href="consigna_controller">
                         <i class="ti-lock"></i>
                         <p>Consignas</p>
                     </a>
@@ -19,9 +19,9 @@
                         <p>Autorización Trabajo <br></p>
                         <?php 
                         if ($trabajo_abiertos==1){
-                           echo "( ".$trabajo_abiertos." abierto )";
+                           echo "( ".$trabajo_abiertos." abierta )";
                         }else if($trabajo_abiertos>1){
-                           echo "( ".$trabajo_abiertos." abiertos )";
+                           echo "( ".$trabajo_abiertos." abiertas )";
                         }
                         ?>
                     </a>

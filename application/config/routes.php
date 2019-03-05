@@ -66,8 +66,13 @@ $route['trabajo_controller']='trabajo_controller';
 $route['trabajo_controller/index_abiertas']='trabajo_controller/index_abiertas';
 $route['trabajo_controller/add']   = 'trabajo_controller/add';
 $route['trabajo_controller/edit/(:any)']   = 'trabajo_controller/edit/$1';
-//
 $route['trabajo_open_controller']='trabajo_open_controller';
+//
+//consignas
+$route['consigna_controller']='consigna_controller';
+$route['consigna_controller/index_abiertas']='consigna_controller/index_abiertas';
+$route['consigna_controller/add']   = 'consigna_controller/add';
+$route['consigna_controller/edit/(:any)']   = 'consigna_controller/edit/$1';
 //
 $route['404_override']         = 'Cidx/page_not_found' ;
 $route['translate_uri_dashes'] = FALSE           ;
