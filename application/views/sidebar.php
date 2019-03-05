@@ -38,24 +38,24 @@
                         <p>Operarios</p>
                     </a>
                 </li>
-                <li class="<?php echo ($path == 'user' ? 'active':''); ?>">
+                <!--<li class="<?php echo ($path == 'user' ? 'active':''); ?>">
                     <a href="user">
                         <i class="ti-user"></i>
                         <p>User Profile</p>
                     </a>
                 </li>
-                <!--<li class="<?php echo ($path == 'table' ? 'active':''); ?>">
+                <li class="<?php echo ($path == 'table' ? 'active':''); ?>">
                     <a href="table">
                         <i class="ti-view-list-alt"></i>
                         <p>Table List</p>
                     </a>
-                </li>-->
-                <!--<li class="<?php echo ($path == 'typography' ? 'active':''); ?>">
+                </li>
+                <li class="<?php echo ($path == 'typography' ? 'active':''); ?>">
                     <a href="typography">
                         <i class="ti-text"></i>
                         <p>Typography</p>
                     </a>
-                </li>-->
+                </li>
                 <li class="<?php echo ($path == 'icons' ? 'active':''); ?>">
                     <a href="icons">
                         <i class="ti-pencil-alt2"></i>
@@ -67,5 +67,5 @@
                         <i class="ti-bell"></i>
                         <p>Notifications</p>
                     </a>
-                </li>
+                </li>-->
             </ul>
