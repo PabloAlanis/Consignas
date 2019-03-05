@@ -92,8 +92,23 @@
                                         <?php foreach ($trabajo as $item):?>
                                           <tr>
                                             <td class="text-center"><?php echo $item['idTrabajo']; ?></td>
-                                            <td class="text-center"><?php echo $item['horaInicioTrabajo']; ?></td>
-                                            <td class="text-center"><?php echo $item['horaFinTrabajo']; ?></td>
+                                            <!--conversion de datetime-->
+                                            <?php
+                                             $fechaInicio=$item['horaInicioTrabajo'];
+                                             $Inicio = date("d-m-Y / G:i", strtotime($fechaInicio));
+                                             
+                                             if (empty($item['horaFinTrabajo'])){
+                                                 $fechaFin=$item['horaFinTrabajo'];
+                                                 $Fin =$fechaFin;
+                                             }else{
+                                                 $fechaFin=$item['horaFinTrabajo'];
+                                                 $Fin = date("d-m-Y / G:i", strtotime($fechaFin));
+                                             }
+                                            ?>
+                                            <td class="text-center"><?php echo $Inicio; ?></td>
+                                            <!--<td class="text-center"><?php echo $item['horaInicioTrabajo']; ?></td>
+                                            <td class="text-center"><?php echo $item['horaFinTrabajo']; ?></td>-->
+                                            <td class="text-center"><?php echo $Fin; ?></td> 
                                             <td class="text-center"><?php echo $item['responsable']; ?></td>
                                             <td class="text-center"><?php echo $item['apellidoOperario']; ?></td>
                                             <?php
@@ -142,28 +157,28 @@
                                                         
                                                       <div class="modal-body">
                                                         <div class="form-group col-md-12 text-center">
-                                                        <p>ID: <?php echo $item['idTrabajo']?></p>
+                                                        <p><strong>ID:</strong> <?php echo $item['idTrabajo']?></p>
                                                         </div>
                                                         <div class="form-group col-md-12 text-center">
-                                                        <p>Inicio: <?php echo $item['horaInicioTrabajo']?></p>
+                                                        <p><strong>Inicio:</strong> <?php echo $item['horaInicioTrabajo']?></p>
                                                         </div>
                                                         <div class="form-group col-md-12 text-center">
-                                                        <p>Fin: <?php echo $item['horaFinTrabajo']?></p>
+                                                        <p><strong>Fin:</strong> <?php echo $item['horaFinTrabajo']?></p>
                                                         </div>
                                                         <div class="form-group col-md-12 text-center">
-                                                        <p>Consigna: <?php echo $item['idConsigna']?></p>
+                                                        <p><strong>Consigna:</strong> <?php echo $item['idConsigna']?></p>
                                                         </div>
                                                         <div class="form-group col-md-12 text-center">
-                                                        <p>Linea: <?php echo $item['abreviLinea']?></p>
+                                                        <p><strong>Linea:</strong> <?php echo $item['abreviLinea']?></p>
                                                         </div>
                                                         <div class="form-group col-md-12 text-center">
-                                                        <p>Responsable: <?php echo $item['responsable']?><?php echo " ".$item['nombreResponsable']?></p>
+                                                        <p><strong>Responsable:</strong> <?php echo $item['responsable']?><?php echo " ".$item['nombreResponsable']?></p>
                                                         </div>
                                                         <div class="form-group col-md-12 text-center">
-                                                        <p>Operador: <?php echo $item['apellidoOperario']?><?php echo " ".$item['nombreOperario']?></p>
+                                                        <p><strong>Operador:</strong> <?php echo $item['apellidoOperario']?><?php echo " ".$item['nombreOperario']?></p>
                                                         </div>
                                                         <div class="form-group col-md-12 text-center">
-                                                        <p>Descripción del Trabajo:</p><br>
+                                                        <p><strong>Descripción del Trabajo:</strong></p><br>
                                                         <textarea readonly class="form-control"><?php echo $item['descripcionTrabajo']?></textarea>
                                                         </div>
                                                       </div>
