@@ -160,10 +160,10 @@
                                                         <p><strong>ID:</strong> <?php echo $item['idTrabajo']?></p>
                                                         </div>
                                                         <div class="form-group col-md-12 text-center">
-                                                        <p><strong>Inicio:</strong> <?php echo $item['horaInicioTrabajo']?></p>
+                                                        <p><strong>Inicio:</strong> <?php echo $Inicio;?></p>
                                                         </div>
                                                         <div class="form-group col-md-12 text-center">
-                                                        <p><strong>Fin:</strong> <?php echo $item['horaFinTrabajo']?></p>
+                                                        <p><strong>Fin:</strong> <?php echo $Fin;?></p>
                                                         </div>
                                                         <div class="form-group col-md-12 text-center">
                                                         <p><strong>Consigna:</strong> <?php echo $item['idConsigna']?></p>
