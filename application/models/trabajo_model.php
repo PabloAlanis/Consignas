@@ -83,7 +83,10 @@ class Trabajo_model extends CI_Model
     }
     
     function contar_anio(){
-        $query="SELECT COUNT(idTrabajo) AS contador FROM trabajo WHERE horaInicioTrabajo BETWEEN '".date("Y")."-01-01 00:00:00' AND '".date("Y")."-12-31 00:00:00' ";
-        return $this->db->query($query)->result_array();
+        $first_date=date("Y").'-01-01 00:00:00';
+        $second_date=date("Y").'-12-31 00:00:00';
+        $this->db->where('horaInicioTrabajo >=', $first_date);
+        $this->db->where('horaInicioTrabajo <=', $second_date);
+        return $this->db->from('trabajo')->count_all_results();
     }
 }
