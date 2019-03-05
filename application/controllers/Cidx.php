@@ -15,6 +15,7 @@ class Cidx extends MY_Controller {
         $this->load->model('operario_model');
         $this->load->model('linea_model');
         $this->load->model('trabajo_model');
+        $this->load->model('consigna_model');
 	}
 		
 	public function index( $path_1=null, 
@@ -44,6 +45,8 @@ class Cidx extends MY_Controller {
         $data['trabajo'] = $trabajos;
         $trabajos_anio = $this->trabajo_model->contar_anio();   
         $data['trabajo_anio'] = $trabajos_anio;
+        $consigna_abiertos = $this->consigna_model->contar_consigna_abiertos();   
+        $data['consigna_abiertos'] = $consigna_abiertos;
         //
 		$data['path'] = $path_1;
         

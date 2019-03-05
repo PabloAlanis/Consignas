@@ -9,6 +9,7 @@ class Operario_controller extends CI_Controller
         $this->load->helper('url');
         $this->load->model('operario_model');
         $this->load->model('trabajo_model');
+        $this->load->model('consigna_model');
 	}
 	
 	public function index( $path_1=null, 
@@ -29,7 +30,11 @@ class Operario_controller extends CI_Controller
         $data['operarios'] = $all_operarios;
         $count_operarios = $this->operario_model->count_operario();   
         $data['cant_operarios'] = $count_operarios;
-        $trabajos_abiertos = $this->trabajo_model->contar_trabajos_abiertos();   
+        $trabajos_abiertos = $this->trabajo_model->contar_trabajos_abiertos(); 
+        //cargo las consignas abiertas
+        $consigna_abiertos = $this->consigna_model->contar_consigna_abiertos();   
+        $data['consigna_abiertos'] = $consigna_abiertos;
+        //
         $data['trabajo_abiertos'] = $trabajos_abiertos;
         //
 		$data['path'] = $path_1;

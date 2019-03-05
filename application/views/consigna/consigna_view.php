@@ -66,10 +66,10 @@
                                 <h4 class="title">Listado de Consignas</h4>
                                 <p class="category">En este listado se muestran las Consignas generadas.</p>
                                 <?php
-                                 if ($contador_abiertos > 0 && $contador_abiertos!==1){
-                                     echo "<i class='ti-alert'></i>  Hay ".$contador_abiertos." Autorizaciones de Trabajo Abiertas.  ";
-                                    }else if($contador_abiertos ==1){
-                                     echo "<i class='ti-alert'></i>  Hay ".$contador_abiertos." Autorización de Trabajo Abierta.  ";
+                                 if ($consigna_abiertos > 0 && $consigna_abiertos!==1){
+                                     echo "<i class='ti-alert'></i>  Hay ".$consigna_abiertos." Consignas Abiertas.  ";
+                                    }else if($consigna_abiertos ==1){
+                                     echo "<i class='ti-alert'></i>  Hay ".$consigna_abiertos." Consigna Abierta.  ";
                                     }
                                 ?>
                             </div>
@@ -82,22 +82,22 @@
                                         <th class="text-center">Fin</th>
                                         <th class="text-center">Responsable</th>
                                         <th class="text-center">Operador</th>
-                                        <th class="text-center">Consigna</th>
-                                        <th class="text-center">Linea</th>
+                                        <!--<th class="text-center">Consigna</th>-->
+                                        <!--<th class="text-center">Linea</th>-->
                                         <th class="text-center">Estado</th>
                                         <!--<th class="text-center">Descripción</th>-->
                                         <th class="text-center">Acción</th>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($trabajo as $item):?>
+                                        <?php foreach ($consigna as $item):?>
                                           <tr>
-                                            <td class="text-center"><?php echo $item['idTrabajo']; ?></td>
+                                            <td class="text-center"><?php echo $item['idConsigna']; ?></td>
                                             <!--conversion de datetime-->
                                             <?php
-                                             $fechaInicio=$item['horaInicioTrabajo'];
+                                             $fechaInicio=$item['horaInicioConsigna'];
                                              $Inicio = date("d-m-Y / G:i", strtotime($fechaInicio));
                                              
-                                             if (empty($item['horaFinTrabajo'])){
+                                             if (empty($item['horaFinConsigna'])){
                                                  $fechaFin=$item['horaFinTrabajo'];
                                                  $Fin =$fechaFin;
                                              }else{
@@ -111,24 +111,10 @@
                                             <td class="text-center"><?php echo $Fin; ?></td> 
                                             <td class="text-center"><?php echo $item['responsable']; ?></td>
                                             <td class="text-center"><?php echo $item['apellidoOperario']; ?></td>
-                                            <?php
-                                             if (empty($item['idConsigna'])){
-                                                 echo "<td class='text-center'>-</td>";
-                                             }else{
-                                                 echo "<td class='text-center'>".$item['idConsigna']."</td>";
-                                             }
-                                             ?> 
                                             
-                                             <?php
-                                             if (empty($item['idLinea'])){
-                                                 echo "<td class='text-center'>-</td>";
-                                             }else{
-                                                 echo "<td class='text-center'>".$item['abreviLinea']."</td>";
-                                             }
-                                             ?>
                                               
                                              <?php
-                                             if (empty($item['horaFinTrabajo'])){
+                                             if (empty($item['horaFinConsigna'])){
                                                  echo "<td class='text-center danger'><i class='ti-unlock'></i> Abierta</td>";
                                              }else{
                                                  echo "<td class='text-center success'><i class='ti-lock'></i> Cerrada</td>";

@@ -53,4 +53,26 @@ class Consigna_model extends CI_Model
     {
         return $this->db->delete('consigna',array('idConsigna'=>$idConsigna));
     }
+    
+    function contar_consignas(){
+        return $this->db->from('consigna')->count_all_results();
+    }
+    
+    function contar_consigna_abiertos(){
+        $this->db->where('horaFinConsigna',null);
+        return $this->db->from('consigna')->count_all_results();
+    }
+    
+    function contar_cerrados(){
+        $this->db->where('horaFinConsigna IS NOT NULL', NULL, FALSE);
+        return $this->db->from('consigna')->count_all_results();
+    }
+    
+    function contar_anio(){
+        $first_date=date("Y").'-01-01 00:00:00';
+        $second_date=date("Y").'-12-31 00:00:00';
+        $this->db->where('horaInicioConsigna >=', $first_date);
+        $this->db->where('horaInicioConsigna <=', $second_date);
+        return $this->db->from('consigna')->count_all_results();
+    }
 }

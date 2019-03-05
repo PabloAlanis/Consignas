@@ -10,6 +10,7 @@ class Consigna_controller extends CI_Controller
         $this->load->model('trabajo_model');
         $this->load->model('operario_model');
         $this->load->model('linea_model');
+        $this->load->model('consigna_model');
 	}
 	
 	public function index( $path_1=null, 
@@ -25,7 +26,10 @@ class Consigna_controller extends CI_Controller
 
 			$path_1 = 'consigna/consigna_view';
 		}
-        //carga de las lineas BD
+        //carga de las consignas
+        $all_consignas = $this->consigna_model->get_all_consigna();   
+        $data['consigna'] = $all_consignas;
+        //
         $all_trabajos = $this->trabajo_model->get_all_trabajo();   
         $data['trabajo'] = $all_trabajos;
         //cuenta las autorizaciones de trabajo en total
@@ -37,9 +41,13 @@ class Consigna_controller extends CI_Controller
         //carga los select de operarios
         $all_operarios = $this->operario_model->get_operarios();   
         $data['operarios'] = $all_operarios;
+        //cargo las consignas abiertas
+        $consigna_abiertos = $this->consigna_model->contar_consigna_abiertos();   
+        $data['consigna_abiertos'] = $consigna_abiertos;
         //
+        //cargo las autorizaciones abiertas
         $trabajos_abiertos = $this->trabajo_model->contar_trabajos_abiertos();   
-        $data['trabajo_abiertos'] = $trabajos_abiertos;
+        $data['trabajo_abiertos'] = $trabajos_abiertos; 
         //carga el select de lineas
         $all_lineas = $this->linea_model->get_all_linea();   
         $data['linea'] = $all_lineas;

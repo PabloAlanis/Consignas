@@ -10,7 +10,14 @@
                 <li class="<?php echo ($path == 'consigna/consigna_view' ? 'active':''); ?>">
                     <a href="consigna_controller">
                         <i class="ti-lock"></i>
-                        <p>Consignas</p>
+                        <p>Consignas<br></p>
+                        <?php 
+                        if ($consigna_abiertos==1){
+                           echo "( ".$consigna_abiertos." abierta )";
+                        }else if($consigna_abiertos>1){
+                           echo "( ".$consigna_abiertos." abiertas )";
+                        }
+                        ?>
                     </a>
                 </li>
                 <li class="<?php echo ($path == 'trabajo/trabajo_view' ? 'active':''); ?>">
