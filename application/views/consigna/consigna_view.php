@@ -245,7 +245,7 @@
             </div>
         </div>
 
-<!-- Modal para generar autorizacion de trabajo -->
+<!-- Modal para generar consigna -->
 <div id="myModal" class="modal fade" role="dialog" data-backdrop="false" style="position: abolute;z-index:3 !important;background-color: rgba(0, 0, 0, 0.5);">
   <div class="modal-dialog">
 
@@ -253,42 +253,27 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"><i class="ti-lock"></i> Autorización <?php echo $contador+1 ;echo "-"; echo date( "Y") ?> - <?php date_default_timezone_set('America/Buenos_Aires');echo date("d/m/Y - G:i ")?> </h4>
+        <h4 class="modal-title"><i class="ti-lock"></i> Consigna <?php echo $contador_consignas+1 ;echo "-"; echo date( "Y") ?> - <?php date_default_timezone_set('America/Buenos_Aires');echo date("d/m/Y - G:i ")?> </h4>
       </div>
       <div class="modal-body">
-        <p>Ingresa los datos de la autorización.</p><br>
+        <p>Ingresa los datos de la consigna.</p><br>
         <!--formulario-->
-            <?php echo form_open('trabajo_controller/add'); ?>
+            <?php echo form_open('consigna_controller/add'); ?>
           
                 <div hidden>
-                    idTrabajo : 
-                    <input type="text" name="idTrabajo" value="<?php echo $contador+1 ;echo "-"; echo date( "Y") ?><?php echo $this->input->post('idTrabajo'); ?>" />
+                    idConsigna : 
+                    <input type="text" name="idConsigna" value="<?php echo $contador_consignas+1 ;echo "-"; echo date( "Y") ?><?php echo $this->input->post('idConsigna'); ?>" />
                 </div>
                 <div hidden>
-                    HoraInicioTrabajo : 
-                    <input type="datetime" name="horaInicioTrabajo" value="<?php echo date("Y/m/d G:i:h ")?><?php echo $this->input->post('horaInicioTrabajo'); ?>" />
+                    HoraInicioConsigna : 
+                    <input type="datetime" name="horaInicioConsigna" value="<?php echo date("Y/m/d G:i:h ")?><?php echo $this->input->post('horaInicioConsigna'); ?>" />
                 </div>              
-                <div class="form-group col-md-6">
-                <label for="idConsigna">Consigna</label>
-                <input type="text" class="form-control border-input" name="idConsigna" id="idConsigna" value="<?php echo $this->input->post('idConsigna'); ?>" />
-                <small class="form-text">La autorización perteneze a una consigna?</small>
-                </div>
+          
+                
           
                 <div class="form-group col-md-6">
-                <label for="idLinea">Linea</label>
-                <select required name="idLinea" id="idLinea" class="form-control border-input">
-                <option selected="selected" disabled="disabled"></option>
-                <!--<option value="">No es sobre ninguna Linea</option>    -->
-                <?php foreach ($linea as $lineas)
-                  echo '<option value="'.$lineas['idLinea'].'">'.$lineas['abreviLinea'].'</option>';   
-                ?>
-                </select>
-                <small class="form-text">Selecciona si es sobre una linea.</small>    
-                </div>
-          
-                <div class="form-group col-md-6">
-                <label for="responsableTrabajo">Responsable</label>
-                <select required name="responsableTrabajo" id="responsableTrabajo" class="form-control border-input">
+                <label for="responsableConsigna">Responsable</label>
+                <select required name="responsableConsigna" id="responsableConsigna" class="form-control border-input">
                 <option selected="selected" disabled="disabled"></option>
                 <?php foreach ($operarios as $operario)
                   echo '<option value="'.$operario['idOperario'].'">'.$operario['nombreOperario']." ".$operario['apellidoOperario'].'</option>';   
@@ -297,8 +282,8 @@
                 <small class="form-text">Selecciona al responsable del trabajo.</small>    
                 </div>
                 <div class="form-group col-md-6">
-                <label for="operadorTrabajo">Operario</label>
-                <select required name="operadorTrabajo" id="operadorTrabajo" class="form-control border-input">
+                <label for="operadorConsigna">Operario</label>
+                <select required name="operadorConsigna" id="operadorConsigna" class="form-control border-input">
                 <option selected="selected" disabled="disabled"></option>
                 <?php foreach ($operarios as $operario)
                   echo '<option value="'.$operario['idOperario'].'">'.$operario['nombreOperario']." ".$operario['apellidoOperario'].'</option>';   
@@ -307,9 +292,9 @@
                 <small class="form-text">Selecciona al operador.</small>    
                 </div>
                 <div class="form-group">
-                <label for="descripcionTrabajo">Descripción</label>: 
-                <textarea class="form-control border-input" name="descripcionTrabajo" id="descripcionTrabajo" value="<?php echo $this->input->post('descripcionTrabajo'); ?>"></textarea>
-                <small class="form-text">Ingresa los detalles del trabajo.</small>  
+                <label for="descripcionConsigna">Descripción</label>: 
+                <textarea class="form-control border-input" name="descripcionConsigna" id="descripcionConsigna" value="<?php echo $this->input->post('descripcionConsigna'); ?>"></textarea>
+                <small class="form-text">Ingresa los detalles de la consigna.</small>  
                 </div>
       </div>
       <div class="modal-footer">

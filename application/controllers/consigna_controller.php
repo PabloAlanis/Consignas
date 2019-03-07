@@ -35,6 +35,9 @@ class Consigna_controller extends CI_Controller
         //cuenta las autorizaciones de trabajo en total
         $contador_trabajos=$this->trabajo_model->contar_trabajos();
         $data['contador']=$contador_trabajos;
+        //cuenta las consignas en total
+        $contador=$this->consigna_model->contar_consignas();
+        $data['contador_consignas']=$contador;
         //cuenta las autorizaciones de trabajo abiertas
         $contador_trabajos_abiertos=$this->trabajo_model->contar_trabajos_abiertos();
         $data['contador_abiertos']=$contador_trabajos_abiertos;
@@ -67,15 +70,16 @@ class Consigna_controller extends CI_Controller
         if(isset($_POST) && count($_POST) > 0)     
         {   
             $params = array(
+                'idConsigna' => $this ->input->post('idConsigna'),
 				'horaInicioConsigna' => $this->input->post('horaInicioConsigna'),
-				'horaFinConsigna' => $this->input->post('horaFinConsigna'),
+				'horaFinConsigna' => null,
 				'responsableConsigna' => $this->input->post('responsableConsigna'),
 				'operadorConsigna' => $this->input->post('operadorConsigna'),
 				'descripcionConsigna' => $this->input->post('descripcionConsigna'),
             );
             
-            $consigna_id = $this->Consigna_model->add_consigna($params);
-            redirect('consigna/index');
+            $consigna_id = $this->consigna_model->add_consigna($params);
+            redirect('consigna_controller');
         }
         else
         {            
@@ -97,15 +101,16 @@ class Consigna_controller extends CI_Controller
             if(isset($_POST) && count($_POST) > 0)     
             {   
                 $params = array(
+                    'idConsigna' => $this ->input->post('idConsigna'),
 					'horaInicioConsigna' => $this->input->post('horaInicioConsigna'),
-					'horaFinConsigna' => $this->input->post('horaFinConsigna'),
+					'horaFinConsigna' => date("Y/m/d G:i:h"),
 					'responsableConsigna' => $this->input->post('responsableConsigna'),
 					'operadorConsigna' => $this->input->post('operadorConsigna'),
 					'descripcionConsigna' => $this->input->post('descripcionConsigna'),
                 );
 
-                $this->Consigna_model->update_consigna($idConsigna,$params);            
-                redirect('consigna/index');
+                $this->consigna_model->update_consigna($idConsigna,$params);            
+                redirect('consigna_controller');
             }
             else
             {
