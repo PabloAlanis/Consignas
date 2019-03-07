@@ -89,4 +89,13 @@ class Trabajo_model extends CI_Model
         $this->db->where('horaInicioTrabajo <=', $second_date);
         return $this->db->from('trabajo')->count_all_results();
     }
+    
+    //esta funcion cuenta los trabajos del día
+     function contar_trabajos_hoy(){
+        $first_date=date("Y-m-d").' 00:00:01';
+        $second_date=date("Y-m-d").' 23:59:00';
+        $this->db->where('horaInicioTrabajo >=', $first_date);
+        $this->db->where('horaInicioTrabajo <=', $second_date);
+        return $this->db->from('trabajo')->count_all_results();
+    }
 }

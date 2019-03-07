@@ -47,6 +47,8 @@ class Cidx extends MY_Controller {
         $data['trabajo_anio'] = $trabajos_anio;
         $consigna_abiertos = $this->consigna_model->contar_consigna_abiertos();   
         $data['consigna_abiertos'] = $consigna_abiertos;
+        $trabajos_hoy = $this->trabajo_model->contar_trabajos_hoy();   
+        $data['trabajos_hoy'] = $trabajos_hoy;
         //
 		$data['path'] = $path_1;
         
