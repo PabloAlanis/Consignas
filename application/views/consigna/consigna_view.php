@@ -46,8 +46,8 @@
                 </div>
                 <div class="col-md-12" id="botones">
                      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="ti-pin-alt"></i> Generar Consigna</button>
-                    <a href="trabajo_open_controller" class="btn btn-danger"><i class="ti-unlock"></i> Mostrar Consignas Abiertas</a>
-                    <a href="trabajo_controller" class="btn btn-success"><i class="ti-lock"></i> Mostrar todas las Consignas</a>
+                    <a href="consigna_open_controller" class="btn btn-danger"><i class="ti-unlock"></i> Mostrar Consignas Abiertas</a>
+                    <a href="consigna_controller" class="btn btn-success"><i class="ti-lock"></i> Mostrar todas las Consignas</a>
                         
                     <br>
                     <!--<a href="/linea_controller"><p class="">Logout</p></a>-->
@@ -98,16 +98,16 @@
                                              $Inicio = date("d-m-Y / G:i", strtotime($fechaInicio));
                                              
                                              if (empty($item['horaFinConsigna'])){
-                                                 $fechaFin=$item['horaFinTrabajo'];
+                                                 $fechaFin=$item['horaFinConsigna'];
                                                  $Fin =$fechaFin;
                                              }else{
-                                                 $fechaFin=$item['horaFinTrabajo'];
+                                                 $fechaFin=$item['horaFinConsigna'];
                                                  $Fin = date("d-m-Y / G:i", strtotime($fechaFin));
                                              }
                                             ?>
                                             <td class="text-center"><?php echo $Inicio; ?></td>
-                                            <!--<td class="text-center"><?php echo $item['horaInicioTrabajo']; ?></td>
-                                            <td class="text-center"><?php echo $item['horaFinTrabajo']; ?></td>-->
+                                            <!--<td class="text-center"><?php echo $item['horaInicioConsigna']; ?></td>
+                                            <td class="text-center"><?php echo $item['horaFinConsigna']; ?></td>-->
                                             <td class="text-center"><?php echo $Fin; ?></td> 
                                             <td class="text-center"><?php echo $item['responsable']; ?></td>
                                             <td class="text-center"><?php echo $item['apellidoOperario']; ?></td>
@@ -120,43 +120,37 @@
                                                  echo "<td class='text-center success'><i class='ti-lock'></i> Cerrada</td>";
                                              }
                                              ?>  
-                                            <!--<td class="text-center"><?php echo $item['descripcionTrabajo']; ?></td>-->
+                                            <!--<td class="text-center"><?php echo $item['descripcionConsigna']; ?></td>-->
                                             <td class="text-center"> 
-                                            <a  href="" data-toggle="modal" data-target="#<?php echo $item['idTrabajo']; ?>Ver">Ver</a>
+                                            <a  href="" data-toggle="modal" data-target="#<?php echo $item['idConsigna']; ?>Ver">Ver</a>
                                             
                                              <?php
-                                             if (empty($item['horaFinTrabajo'])){
-                                                 echo " | <a href='' data-toggle='modal' data-target='#".$item['idTrabajo']."'>Cerrar</a>";
+                                             if (empty($item['horaFinConsigna'])){
+                                                 echo " | <a href='' data-toggle='modal' data-target='#".$item['idConsigna']."'>Cerrar</a>";
                                              }
                                              ?> 
-                                            <!-- Modal para ver trabajo -->
-                                                <div id="<?php echo $item['idTrabajo']; ?>Ver" class="modal fade text-left" role="dialog" data-backdrop="false" style="position: abolute;z-index:3 !important;background-color: rgba(0, 0, 0, 0.5);">
+                                            <!-- Modal para ver consigna -->
+                                                <div id="<?php echo $item['idConsigna']; ?>Ver" class="modal fade text-left" role="dialog" data-backdrop="false" style="position: abolute;z-index:3 !important;background-color: rgba(0, 0, 0, 0.5);">
                                                   <div class="modal-dialog">
                                                     <!-- Modal content-->
                                                     <div class="modal-content">
                                                         
                                                       <div class="modal-header">
                                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                        <h4 class="modal-title"><i class="ti-pin-alt"></i> Detalles de la A.T <?php echo $item['idTrabajo']?></h4>
-                                                        <p>Estos son los datos de la Autorización</p>
+                                                        <h4 class="modal-title"><i class="ti-pin-alt"></i> Detalles de la Consigna <?php echo $item['idConsigna']?></h4>
+                                                        <p>Estos son los datos de la Consigna</p>
                                                       </div>
                                                         
                                                       <div class="modal-body">
                                                         <div class="form-group col-md-12 text-center">
-                                                        <p><strong>ID:</strong> <?php echo $item['idTrabajo']?></p>
+                                                        <p><strong>ID:</strong> <?php echo $item['idConsigna']?></p>
                                                         </div>
                                                         <div class="form-group col-md-12 text-center">
                                                         <p><strong>Inicio:</strong> <?php echo $Inicio;?></p>
                                                         </div>
                                                         <div class="form-group col-md-12 text-center">
                                                         <p><strong>Fin:</strong> <?php echo $Fin;?></p>
-                                                        </div>
-                                                        <div class="form-group col-md-12 text-center">
-                                                        <p><strong>Consigna:</strong> <?php echo $item['idConsigna']?></p>
-                                                        </div>
-                                                        <div class="form-group col-md-12 text-center">
-                                                        <p><strong>Linea:</strong> <?php echo $item['abreviLinea']?></p>
-                                                        </div>
+                                                        </div>                                                                                
                                                         <div class="form-group col-md-12 text-center">
                                                         <p><strong>Responsable:</strong> <?php echo $item['responsable']?><?php echo " ".$item['nombreResponsable']?></p>
                                                         </div>
@@ -164,8 +158,8 @@
                                                         <p><strong>Operador:</strong> <?php echo $item['apellidoOperario']?><?php echo " ".$item['nombreOperario']?></p>
                                                         </div>
                                                         <div class="form-group col-md-12 text-center">
-                                                        <p><strong>Descripción del Trabajo:</strong></p><br>
-                                                        <textarea readonly class="form-control"><?php echo $item['descripcionTrabajo']?></textarea>
+                                                        <p><strong>Descripción de la consigna:</strong></p><br>
+                                                        <textarea readonly class="form-control"><?php echo $item['descripcionConsigna']?></textarea>
                                                         </div>
                                                       </div>
                                                         
@@ -178,8 +172,8 @@
                                                 </div>
                                                 <!--fin modal-->    
                                                 
-                                                <!-- Modal para cerrar trabajo -->
-                                                <div id="<?php echo $item['idTrabajo']; ?>" class="modal fade text-left" role="dialog" data-backdrop="false" style="position: abolute;z-index:3 !important;background-color: rgba(0, 0, 0, 0.5);">
+                                                <!-- Modal para cerrar consigna -->
+                                                <div id="<?php echo $item['idConsigna']; ?>" class="modal fade text-left" role="dialog" data-backdrop="false" style="position: abolute;z-index:3 !important;background-color: rgba(0, 0, 0, 0.5);">
                                                   <div class="modal-dialog">
 
                                                     <!-- Modal content-->
@@ -189,9 +183,9 @@
                                                         <h4 class="modal-title"><i class="ti-lock"></i> Cierre de Autorización de Trabajo</h4>
                                                       </div>
                                                       <div class="modal-body">
-                                                        <p>Estas seguro de cerrar la Autorización de Trabajo <?php echo $item['idTrabajo']?> abierta por el operario <?php echo $item['reponsable'] ;echo " ".$item['responsable']; ?>?</p>
+                                                        <p>Estas seguro de cerrar la Consigna <?php echo $item['idConsigna']?> abierta por el operario <?php echo $item['reponsable'] ;echo " ".$item['responsable']; ?>?</p>
                                                         <!--formulario-->
-                                                        <?php echo form_open('trabajo_controller/edit/'.$item['idTrabajo']); ?>
+                                                        <?php echo form_open('consigna_controller/edit/'.$item['idConsigna']); ?>
                                                         <div hidden class="form-group col-md-4">
                                                         <label for="idTrabajo">Id</label>
                                                         <input  type="text" class="form-control border-input" id="idTrabajo" name="idTrabajo" value="<?php echo ($this->input->post('idTrabajo') ? $this->input->post('idTrabajo') : $item['idTrabajo']); ?>" />
@@ -291,6 +285,18 @@
                 </select>
                 <small class="form-text">Selecciona al operador.</small>    
                 </div>
+          
+                <div class="form-group">
+                <label>Carga las lineas involucradas:</label><br>
+                <select required name="idLinea" id="idLinea" class="form-control border-input">
+                <option selected="selected" disabled="disabled"></option>
+                <!--<option value="">No es sobre ninguna Linea</option>    -->
+                <?php foreach ($linea as $lineas)
+                  echo '<option value="'.$lineas['idLinea'].'">'.$lineas['abreviLinea'].'</option>';   
+                ?>
+                </select><button class="btn btn-success"><i class="ti-plus"></i> Agregar</button>      
+                </div>
+          
                 <div class="form-group">
                 <label for="descripcionConsigna">Descripción</label>: 
                 <textarea class="form-control border-input" name="descripcionConsigna" id="descripcionConsigna" value="<?php echo $this->input->post('descripcionConsigna'); ?>"></textarea>

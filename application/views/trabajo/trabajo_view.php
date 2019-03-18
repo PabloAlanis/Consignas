@@ -284,7 +284,16 @@
                 </div>              
                 <div class="form-group col-md-6">
                 <label for="idConsigna">Consigna</label>
-                <input type="text" class="form-control border-input" name="idConsigna" id="idConsigna" value="<?php echo $this->input->post('idConsigna'); ?>" />
+                <select name="idConsigna" id="idConsigna" class="form-control border-input">
+                <option selected="selected" disabled="disabled"></option>
+                <!--<option value="">No es sobre ninguna Linea</option>    -->
+                <?php foreach ($consigna as $c)
+                //paso a formato la hora y fecha de la consigna
+                  //$fechaInicioConsigna=$c['horaInicioConsigna'];
+                  //$InicioConsigna = date("d-m-Y / G:i", strtotime($fechaInicioConsigna));
+                  echo '<option value="'.$c['idConsigna'].'">'.$c['idConsigna'].' ( '.$c['horaInicioConsigna'].')</option>';   
+                ?>
+                </select>
                 <small class="form-text">La autorización perteneze a una consigna?</small>
                 </div>
           

@@ -63,6 +63,14 @@ class Consigna_model extends CI_Model
         return $this->db->from('consigna')->count_all_results();
     }
     
+    //obtiene de la BD todas las consignas abiertas
+    function get_all_consigna_abiertas()
+    {
+        $this->db->where('horaFinConsigna',null);
+        $this->db->order_by('idConsigna', 'desc');
+        return $this->db->get('consigna')->result_array();
+    }
+    
     function contar_cerrados(){
         $this->db->where('horaFinConsigna IS NOT NULL', NULL, FALSE);
         return $this->db->from('consigna')->count_all_results();

@@ -45,6 +45,10 @@ class Trabajo_controller extends CI_Controller
         $consigna_abiertos = $this->consigna_model->contar_consigna_abiertos();   
         $data['consigna_abiertos'] = $consigna_abiertos;
         //
+        //cargo las consignas(select)
+        $consigna = $this->consigna_model->get_all_consigna_abiertas();   
+        $data['consigna'] = $consigna;
+        //
         //carga el select de lineas
         $all_lineas = $this->linea_model->get_all_linea();   
         $data['linea'] = $all_lineas;
