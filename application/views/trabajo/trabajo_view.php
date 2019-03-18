@@ -285,8 +285,7 @@
                 <div class="form-group col-md-6">
                 <label for="idConsigna">Consigna</label>
                 <select name="idConsigna" id="idConsigna" class="form-control border-input">
-                <option selected="selected" disabled="disabled"></option>
-                <!--<option value="">No es sobre ninguna Linea</option>    -->
+                <option selected="selected" disabled="disabled">Ninguna</option>
                 <?php foreach ($consigna as $c)
                 //paso a formato la hora y fecha de la consigna
                   //$fechaInicioConsigna=$c['horaInicioConsigna'];
@@ -294,14 +293,13 @@
                   echo '<option value="'.$c['idConsigna'].'">'.$c['idConsigna'].' ( '.$c['horaInicioConsigna'].')</option>';   
                 ?>
                 </select>
-                <small class="form-text">La autorización perteneze a una consigna?</small>
+                <small class="form-text">La A.T es sobre una consigna abierta?</small>
                 </div>
           
                 <div class="form-group col-md-6">
                 <label for="idLinea">Linea</label>
-                <select required name="idLinea" id="idLinea" class="form-control border-input">
-                <option selected="selected" disabled="disabled"></option>
-                <!--<option value="">No es sobre ninguna Linea</option>    -->
+                <select name="idLinea" id="idLinea" class="form-control border-input">
+                <option selected="selected" disabled="disabled">Ninguna</option>
                 <?php foreach ($linea as $lineas)
                   echo '<option value="'.$lineas['idLinea'].'">'.$lineas['abreviLinea'].'</option>';   
                 ?>
