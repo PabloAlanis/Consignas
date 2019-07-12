@@ -16,6 +16,9 @@ class Cidx extends MY_Controller {
         $this->load->model('linea_model');
         $this->load->model('trabajo_model');
         $this->load->model('consigna_model');
+        //cargo ion_auth from third party
+        $this->load->add_package_path(APPPATH.'third_party/ion_auth/');
+        $this->load->library('ion_auth');
 	}
 		
 	public function index( $path_1=null, 
