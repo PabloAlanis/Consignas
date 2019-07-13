@@ -51,6 +51,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller']   = 'Cidx';
 //rutas del sistema
+$route['auth']   = 'auth';
+$route['auth/login']   = 'auth/login';
+$route['auth/logout']   = 'auth/logout';
 //linea
 $route['linea_controller']   = 'linea_controller';
 $route['linea_controller/remove/(:num)']   = 'linea_controller/remove/$1';

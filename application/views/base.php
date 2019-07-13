@@ -58,6 +58,7 @@
                 <div class="copyright pull-right">
                     <i class='ti-unlock'></i> - Consignas! Hecho por Pablo Alanis , &copy; <script>document.write(new Date().getFullYear())</script><br>
                     Dashboard : &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com">Creative Tim</a>
+                    <p><?php echo $user_login['firstname'].$user_login['lastname']; ?></p>
                 </div>
             </div>
         </footer>
