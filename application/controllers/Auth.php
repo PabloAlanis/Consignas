@@ -67,6 +67,8 @@ class Auth extends CI_Controller
 	 */
 	public function login()
 	{
+        //$data[ 'assets' ] = $this->assets;
+        //$this->data[ 'assets' ] = $this->assets;
 		$this->data['title'] = $this->lang->line('login_heading');
 
 		// validate form input
@@ -464,6 +466,8 @@ class Auth extends CI_Controller
 	 */
 	public function create_user()
 	{
+        //carga el etilo
+        $this->$data[ 'assets' ] = $this->assets;
 		$this->data['title'] = $this->lang->line('create_user_heading');
 
 		if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())

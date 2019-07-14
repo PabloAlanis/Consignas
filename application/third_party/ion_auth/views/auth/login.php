@@ -1,28 +1,83 @@
-<h1><?php echo lang('login_heading');?></h1>
-<p><?php echo lang('login_subheading');?></p>
+<!-- Bootstrap core CSS     -->
+    <link href="/static/assets/css/bootstrap.min.css" rel="stylesheet" />
 
-<div id="infoMessage"><?php echo $message;?></div>
+    <!-- Animation library for notifications   -->
+    <link href="/static/assets/css/animate.min.css" rel="stylesheet"/>
+
+    <!--  Paper Dashboard core CSS    -->
+    <link href="/static/assets/css/paper-dashboard.css" rel="stylesheet"/>
+
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="/static/assets/css/demo.css" rel="stylesheet" />
+
+
+    <!--  Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+    <link href="/static/assets/css/themify-icons.css" rel="stylesheet">
+    
+    <!--script y CSS-->
+    <script src="static/assets/js/sweetalert2.all.min.js"></script>
+    <script src="static/assets/js/jquery-3.2.1.min.js"></script>
+
+
+<!--   Core JS Files   -->
+<script src="/static/assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="/static/assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/static/assets/js/material.min.js" type="text/javascript"></script>
+
+
+    <!--   Core JS Files   -->
+    <script src="/static/assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+	<script src="/static/assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+	<!--  Checkbox, Radio & Switch Plugins -->
+	<script src="/static/assets/js/bootstrap-checkbox-radio.js"></script>
+
+	<!--  Charts Plugin -->
+	<script src="/static/assets/js/chartist.min.js"></script>
+
+    <!--  Notifications Plugin    -->
+    <script src="/static/assets/js/bootstrap-notify.js"></script>
+
+    <!--  Google Maps Plugin    -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
+    <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
+	<script src="/static/assets/js/paper-dashboard.js"></script>
+
+	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+	<script src="/static/assets/js/demo.js"></script>
+<!---->
+
+
+<h1 class="text-center"><i class="ti-lock"></i> - Consignas!</h1>
+<h1 class="text-center"><?php echo lang('login_heading');?></h1>
+<h5 class="text-center"><?php echo lang('login_subheading');?></h5>
+
+<div class="text-center" id="infoMessage"><?php echo $message;?></div>
 
 <?php echo form_open("auth/login");?>
 
-  <p>
+  <p class="text-center">
     <?php echo lang('login_identity_label', 'identity');?>
     <?php echo form_input($identity);?>
   </p>
 
-  <p>
+  <p class="text-center">
     <?php echo lang('login_password_label', 'password');?>
     <?php echo form_input($password);?>
   </p>
 
-  <p>
+  <p class="text-center">
     <?php echo lang('login_remember_label', 'remember');?>
     <?php echo form_checkbox('remember', '1', FALSE, 'id="remember"');?>
   </p>
 
 
-  <p><?php echo form_submit('submit', lang('login_submit_btn'));?></p>
+  <p class="text-center"><?php echo form_submit('submit', lang('login_submit_btn'));?></p>
 
 <?php echo form_close();?>
 
-<p><a href="forgot_password"><?php echo lang('login_forgot_password');?></a></p>
+<p class="text-center"><a href="forgot_password"><?php echo lang('login_forgot_password');?></a></p>

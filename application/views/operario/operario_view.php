@@ -190,7 +190,7 @@
 
 
 
-<script>
+<!--script>
     function msjSweet(){
     Swal({
       //position: 'top-end',
@@ -208,6 +208,6 @@
       showConfirmButton: false,
       timer: 100000
      })}
-</script>
+</script-->
 
 
