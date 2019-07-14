@@ -66,7 +66,7 @@ class Cidx extends MY_Controller {
 
 	public function page_not_found( )
 	{
-		echo br() . "Yep, it's a 404!";
+		echo br() . "Si, it's a 404!";
 		return ;
 	}
 

@@ -56,7 +56,9 @@ class Auth extends CI_Controller
 				$this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
 			}
 
-			$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'index', $this->data);
+			//$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'index', $this->data);
+            //aca redirecciono al controlador cidx con la data del login
+            redirect('Cidx');
 		}
 	}
 

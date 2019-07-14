@@ -49,11 +49,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller']   = 'Cidx';
-//rutas del sistema
+$route['default_controller']   = 'auth';//Cidx
+$route['Cidx']='Cidx';//nuevo
+//rutas del sistema ion_auth
 $route['auth']   = 'auth';
 $route['auth/login']   = 'auth/login';
 $route['auth/logout']   = 'auth/logout';
+$route['auth/change_password']   = 'auth/change_password';
+$route['auth/forgot_password']   = 'auth/forgot_password';
+$route['auth/reset_password/(:num)']   = 'auth/reset_password/$1';
+$route['auth/activate/(:num)/(:num)']   = 'auth/reset_password/$1/$1';
+$route['auth/deactivate/(:num)']   = 'auth/deactivate/$1';
+$route['auth/create_user']   = 'auth/create_user';
+$route['auth/redirectUser']   = 'auth/redirectUser';
+$route['auth/edit_user/(:num)']   = 'auth/edit_user/$1';
+$route['auth/create_group']   = 'auth/create_group';
+$route['auth/edit_group/(:num)']   = 'auth/edit_group/$1';
+$route['auth/_get_csrf_nonce']   = 'auth/_get_csrf_nonce';
+$route['auth/_valid_csrf_nonce']   = 'auth/_valid_csrf_nonce';
 //linea
 $route['linea_controller']   = 'linea_controller';
 $route['linea_controller/remove/(:num)']   = 'linea_controller/remove/$1';
