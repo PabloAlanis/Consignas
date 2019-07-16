@@ -53,6 +53,7 @@ $route['default_controller']   = 'auth';//Cidx
 $route['Cidx']='Cidx';//nuevo
 //rutas del sistema ion_auth
 $route['auth']   = 'auth';
+$route['auth/index1']   = 'auth/index1';
 $route['auth/login']   = 'auth/login';
 $route['auth/logout']   = 'auth/logout';
 $route['auth/change_password']   = 'auth/change_password';
