@@ -8,6 +8,11 @@ class Operario_model extends CI_Model {
         parent::__construct();
         
 	}
+    
+        public function get_operaradores_ion(){
+          $query="SELECT * FROM users";
+          return $this->db->query($query)->result_array();
+        }
 
         public function get_operarios()
         {

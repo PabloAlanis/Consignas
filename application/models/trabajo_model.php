@@ -31,14 +31,14 @@ class Trabajo_model extends CI_Model
         //este query no mezcla los apellidos de responsable y de operador
         /*$query='SELECT trabajo.idLinea,trabajo.descripcionTrabajo,trabajo.responsableTrabajo,trabajo.operadorTrabajo, trabajo.idTrabajo,trabajo.horaInicioTrabajo,trabajo.horaFinTrabajo,trabajo.idConsigna,a1.apellidoOperario AS responsable,a1.nombreOperario AS nombreResponsable,a2.apellidoOperario,a2.nombreOperario from trabajo INNER JOIN operario a1 ON a1.idOperario = trabajo.responsableTrabajo INNER JOIN operario a2 ON a2.idOperario = trabajo.operadorTrabajo ORDER BY trabajo.horaInicioTrabajo DESC';*/
         
-        $query='SELECT trabajo.idLinea,trabajo.descripcionTrabajo,trabajo.responsableTrabajo,trabajo.operadorTrabajo, trabajo.idTrabajo,trabajo.horaInicioTrabajo,trabajo.horaFinTrabajo,trabajo.idConsigna,a1.apellidoOperario AS responsable,a1.nombreOperario AS nombreResponsable,a2.apellidoOperario,a2.nombreOperario,a3.abreviLinea AS abreviLinea from trabajo INNER JOIN operario a1 ON a1.idOperario = trabajo.responsableTrabajo INNER JOIN operario a2 ON a2.idOperario = trabajo.operadorTrabajo LEFT JOIN linea a3 ON trabajo.idLinea=a3.idLinea ORDER BY trabajo.horaInicioTrabajo DESC';//cambio inner por left
+        $query='SELECT trabajo.idLinea,trabajo.descripcionTrabajo,trabajo.responsableTrabajo,trabajo.operadorTrabajo, trabajo.idTrabajo,trabajo.horaInicioTrabajo,trabajo.horaFinTrabajo,trabajo.idConsigna,a1.apellidoOperario AS responsable,a1.nombreOperario AS nombreResponsable,a2.last_name,a2.first_name,a3.abreviLinea AS abreviLinea from trabajo INNER JOIN operario a1 ON a1.idOperario = trabajo.responsableTrabajo INNER JOIN users a2 ON a2.id = trabajo.operadorTrabajo LEFT JOIN linea a3 ON trabajo.idLinea=a3.idLinea ORDER BY trabajo.horaInicioTrabajo DESC';//cambio inner por left
         return $this->db->query($query)->result_array();
     }
     
     //este query lista los trabajos abiertos
     function get_all_trabajo_abiertos()
     {
-        $query='SELECT trabajo.idLinea,trabajo.descripcionTrabajo,trabajo.responsableTrabajo,trabajo.operadorTrabajo, trabajo.idTrabajo,trabajo.horaInicioTrabajo,trabajo.horaFinTrabajo,trabajo.idConsigna,a1.apellidoOperario AS responsable,a1.nombreOperario AS nombreResponsable,a2.apellidoOperario,a2.nombreOperario,a3.abreviLinea AS abreviLinea from trabajo INNER JOIN operario a1 ON a1.idOperario = trabajo.responsableTrabajo INNER JOIN operario a2 ON a2.idOperario = trabajo.operadorTrabajo LEFT JOIN linea a3 ON trabajo.idLinea=a3.idLinea WHERE horaFinTrabajo IS NULL ORDER BY trabajo.horaInicioTrabajo DESC';
+        $query='SELECT trabajo.idLinea,trabajo.descripcionTrabajo,trabajo.responsableTrabajo,trabajo.operadorTrabajo, trabajo.idTrabajo,trabajo.horaInicioTrabajo,trabajo.horaFinTrabajo,trabajo.idConsigna,a1.apellidoOperario AS responsable,a1.nombreOperario AS nombreResponsable,a2.last_name,a2.first_name,a3.abreviLinea AS abreviLinea from trabajo INNER JOIN operario a1 ON a1.idOperario = trabajo.responsableTrabajo INNER JOIN users a2 ON a2.id = trabajo.operadorTrabajo LEFT JOIN linea a3 ON trabajo.idLinea=a3.idLinea WHERE horaFinTrabajo IS NULL ORDER BY trabajo.horaInicioTrabajo DESC';
         return $this->db->query($query)->result_array();
     }
         

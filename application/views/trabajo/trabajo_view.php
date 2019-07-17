@@ -110,7 +110,7 @@
                                             <td class="text-center"><?php echo $item['horaFinTrabajo']; ?></td>-->
                                             <td class="text-center"><?php echo $Fin; ?></td> 
                                             <td class="text-center"><?php echo $item['responsable']; ?></td>
-                                            <td class="text-center"><?php echo $item['apellidoOperario']; ?></td>
+                                            <td class="text-center"><?php echo $item['last_name']; ?></td>
                                             <?php
                                              if (empty($item['idConsigna'])){
                                                  echo "<td class='text-center'>-</td>";
@@ -175,7 +175,7 @@
                                                         <p><strong>Responsable:</strong> <?php echo $item['responsable']?><?php echo " ".$item['nombreResponsable']?></p>
                                                         </div>
                                                         <div class="form-group col-md-12 text-center">
-                                                        <p><strong>Operador:</strong> <?php echo $item['apellidoOperario']?><?php echo " ".$item['nombreOperario']?></p>
+                                                        <p><strong>Operador:</strong> <?php echo $item['last_name']?><?php echo " ".$item['first_name']?></p>
                                                         </div>
                                                         <div class="form-group col-md-12 text-center">
                                                         <p><strong>Descripción del Trabajo:</strong></p><br>
@@ -318,14 +318,14 @@
                 <small class="form-text">Selecciona al responsable del trabajo.</small>    
                 </div>
                  
-                <!--carga al uer logueado-->
+                <!--carga al user logueado-->
                 <div hidden class="form-group col-md-6">
                 <label for="operadorTrabajo">Operario</label>
                 <input type="text" value="<?php echo $x->id; ?>" readonly name="operadorTrabajo" id="operadorTrabajo" class="form-control border-input"/>
                 <?php echo $x->first_name.' ';echo $x->last_name; ?>
                 </div>
           
-                <!--eto no va-->    
+                <!--esto no va-->    
                 <div hidden class="form-group col-md-6">
                 <label for="operadorTrabajo">Operario</label>
                 <select  class="form-control border-input">
