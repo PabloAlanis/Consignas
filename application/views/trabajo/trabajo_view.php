@@ -307,7 +307,7 @@
                 <small class="form-text">Selecciona si es sobre una linea.</small>    
                 </div>
           
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-12">
                 <label for="responsableTrabajo">Responsable</label>
                 <select required name="responsableTrabajo" id="responsableTrabajo" class="form-control border-input">
                 <option selected="selected" disabled="disabled"></option>
@@ -317,16 +317,27 @@
                 </select>
                 <small class="form-text">Selecciona al responsable del trabajo.</small>    
                 </div>
-                <div class="form-group col-md-6">
+                 
+                <!--carga al uer logueado-->
+                <div hidden class="form-group col-md-6">
                 <label for="operadorTrabajo">Operario</label>
-                <select required name="operadorTrabajo" id="operadorTrabajo" class="form-control border-input">
-                <option selected="selected" disabled="disabled"></option>
+                <input type="text" value="<?php echo $x->id; ?>" readonly name="operadorTrabajo" id="operadorTrabajo" class="form-control border-input"/>
+                <?php echo $x->first_name.' ';echo $x->last_name; ?>
+                </div>
+          
+                <!--eto no va-->    
+                <div hidden class="form-group col-md-6">
+                <label for="operadorTrabajo">Operario</label>
+                <select  class="form-control border-input">
+                <option  disabled="disabled"></option>    
+                <option selected="selected" value="<?php echo $x->id; ?>"><?php echo $x->first_name.' ';echo $x->last_name; ?></option>
                 <?php foreach ($operarios as $operario)
                   echo '<option value="'.$operario['idOperario'].'">'.$operario['nombreOperario']." ".$operario['apellidoOperario'].'</option>';   
                 ?>
                 </select>
                 <small class="form-text">Selecciona al operador.</small>    
                 </div>
+          
                 <div class="form-group">
                 <label for="descripcionTrabajo">Descripción</label>: 
                 <textarea class="form-control border-input" name="descripcionTrabajo" id="descripcionTrabajo" value="<?php echo $this->input->post('descripcionTrabajo'); ?>"></textarea>
