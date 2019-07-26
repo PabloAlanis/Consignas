@@ -77,6 +77,13 @@ class Trabajo_model extends CI_Model
         return $this->db->from('trabajo')->count_all_results();
     }
     
+    function trabajo_fecha($horaInicioTrabajo){
+        //$query="SELECT * FROM `trabajo` where DATE(horaInicioTrabajo) = DATE('".$horaInicioTrabajo."')";
+        $query='SELECT trabajo.idLinea,trabajo.descripcionTrabajo,trabajo.responsableTrabajo,trabajo.operadorTrabajo, trabajo.idTrabajo,trabajo.horaInicioTrabajo,trabajo.horaFinTrabajo,trabajo.idConsigna,a1.apellidoOperario AS responsable,a1.nombreOperario AS nombreResponsable,a2.last_name,a2.first_name,a3.abreviLinea AS abreviLinea from trabajo INNER JOIN operario a1 ON a1.idOperario = trabajo.responsableTrabajo INNER JOIN users a2 ON a2.id = trabajo.operadorTrabajo LEFT JOIN linea a3 ON trabajo.idLinea=a3.idLinea where DATE(horaInicioTrabajo) = DATE("'.$horaInicioTrabajo.'") ORDER BY trabajo.horaInicioTrabajo DESC';
+        return $this->db->query($query)->result_array();
+        //return $this->db->get_where('trabajo',array('horaInicioTrabajo'=>'2019-07-17 19:36:07'))->result_array();
+    }
+    
     function contar_cerrados(){
         $this->db->where('horaFinTrabajo IS NOT NULL', NULL, FALSE);
         return $this->db->from('trabajo')->count_all_results();
