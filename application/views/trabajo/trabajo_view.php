@@ -16,6 +16,7 @@
                     </ul>
 
                 </div>
+                
                 <div class="col-md-12" id="botones">
                      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="ti-pin-alt"></i> Generar A.T</button>
                     <a href="trabajo_open_controller" class="btn btn-danger"><i class="ti-unlock"></i> Mostrar A.T Abiertas</a>
@@ -23,13 +24,13 @@
                         
                     <br>
                     <!--<a href="/linea_controller"><p class="">Logout</p></a>-->
-                    </div>
+                </div>
             </div>
         </nav>
 
 
         <div class="content">
-        
+        <br><br>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">

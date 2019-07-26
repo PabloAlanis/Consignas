@@ -11,13 +11,13 @@
         
         <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="ti-user"></i>
-                    <p><?php echo $x->first_name." ";echo $x->last_name; ?></p>
+                    <i class="ti-headphone-alt"></i>
+                    <p><?php echo " ".$x->first_name." ";echo $x->last_name; ?></p>
                     <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="/auth/create_user/">Crear</a></li>
-                <li><a href="/auth/index1/">Usuarios</a></li>
-                <li><a href="/auth/logout/">Salir</a></li>
+                <li><a href="/auth/create_user/"><i class="ti-pencil"></i>  - Crear</a></li>
+                <li><a href="/auth/index1/"><i class="ti-search"></i> - Usuarios</a></li>
+                <li><a href="/auth/logout/"><i class="ti-shift-right"></i>  - Salir</a></li>
               </ul>
         </li>

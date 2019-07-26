@@ -51,7 +51,16 @@
 	<script src="/static/assets/js/demo.js"></script>
 <!---->
 
-
+<body style="background: url('/static/assets/img/bg04.jpg') no-repeat center center fixed;-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;">
+    
+<div class="border-left-0" style="position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);">
 <h1 class="text-center"><i class="ti-lock"></i> - Consignas!</h1>
 <h1 class="text-center"><?php echo lang('login_heading');?></h1>
 <h5 class="text-center"><?php echo lang('login_subheading');?></h5>
@@ -81,4 +90,5 @@
 <?php echo form_close();?>
 
 <p class="text-center"><a href="forgot_password"><?php echo lang('login_forgot_password');?></a></p>
-
+</div>
+</body>

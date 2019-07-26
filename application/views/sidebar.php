@@ -3,7 +3,7 @@
             <ul class="nav">
                 <li class="<?php echo ($path == 'dashboard' ? 'active':''); ?>">
                     <a href="dashboard">
-                        <i class="ti-panel"></i>
+                        <i class="ti-home"></i>
                         <p>Inicio</p>
                     </a>
                 </li>
@@ -62,7 +62,7 @@
                         <i class="ti-text"></i>
                         <p>Typography</p>
                     </a>
-                </li>
+                </li>-->
                 <li class="<?php echo ($path == 'icons' ? 'active':''); ?>">
                     <a href="icons">
                         <i class="ti-pencil-alt2"></i>
@@ -74,5 +74,5 @@
                         <i class="ti-bell"></i>
                         <p>Notifications</p>
                     </a>
-                </li>-->
+                </li>
             </ul>
