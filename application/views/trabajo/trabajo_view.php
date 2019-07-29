@@ -21,12 +21,13 @@
                      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="ti-pin-alt"></i> Generar A.T</button>
                     <a href="trabajo_open_controller" class="btn btn-danger"><i class="ti-unlock"></i> Mostrar A.T Abiertas</a>
                     <a href="trabajo_controller" class="btn btn-success"><i class="ti-lock"></i> Mostrar todas las A.T</a>
+                    <!--Boton para buscar trabajos por fecha-->
                     <?php echo form_open('trabajo_fecha_controller'); ?>                           
-                    <input required type="date" name="horaInicioTrabajo" value="<?php echo $this->input->post('horaInicioTrabajo'); ?>" />
-                    <button type="submit" class="btn btn-success">Buscar por fecha</button>
+                    <button type="submit" class="btn btn-success"><i class="ti-calendar"></i> Buscar por fecha</button>
+                    <input class="border-input" required type="date" name="horaInicioTrabajo" value="<?php echo $this->input->post('horaInicioTrabajo'); ?>" />
                     <?php echo form_close(); ?>
-                        
-                    <br>
+                    <!--Boton para buscar trabajos por fecha-->
+                    
                     <!--<a href="/linea_controller"><p class="">Logout</p></a>-->
                 </div>
             </div>
