@@ -56,7 +56,7 @@
               -webkit-transform: translate(-50%, -50%);
               transform: translate(-50%, -50%);">
                 <h1 class="text-center"><i class="ti-lock"></i> - Consignas!</h1>
-                <h3 class="text-center"><?php echo lang('login_heading');?></h1>
+                <h3 class="text-center"><?php echo lang('login_heading');?></h3>
                 <h5 class="text-center"><?php echo lang('login_subheading');?></h5>
 
                 <div class="text-center" id="infoMessage"><?php echo $message;?></div>
@@ -89,4 +89,6 @@
                 <br>
                 <p class="text-center"><a href="forgot_password"><?php echo lang('login_forgot_password');?></a></p>
                 </div>
+            
+                
         </body>
