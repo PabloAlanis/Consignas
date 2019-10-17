@@ -11,7 +11,7 @@
                     <a href="consigna_controller">
                         <i class="ti-lock"></i>
                         <p>Consignas<br></p>
-                        <?php 
+                        <?php
                         if ($consigna_abiertos==1){
                            echo "( ".$consigna_abiertos." abierta )";
                         }else if($consigna_abiertos>1){
@@ -24,7 +24,7 @@
                     <a href="trabajo_controller">
                         <i class="ti-key"></i>
                         <p>Autorización Trabajo <br></p>
-                        <?php 
+                        <?php
                         if ($trabajo_abiertos==1){
                            echo "( ".$trabajo_abiertos." abierta )";
                         }else if($trabajo_abiertos>1){
@@ -63,7 +63,7 @@
                         <p>Typography</p>
                     </a>
                 </li>-->
-                <li class="<?php echo ($path == 'icons' ? 'active':''); ?>">
+                <!--<li class="<?php echo ($path == 'icons' ? 'active':''); ?>">
                     <a href="icons">
                         <i class="ti-pencil-alt2"></i>
                         <p>Icons</p>
@@ -74,5 +74,5 @@
                         <i class="ti-bell"></i>
                         <p>Notifications</p>
                     </a>
-                </li>
+                </li>-->
             </ul>
