@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right"> 
+                    <ul class="nav navbar-nav navbar-right">
                         <?php $this->load->view( '/common/auth'); ?>
                     </ul>
 
@@ -53,7 +53,7 @@
                                             <td class="text-center"><?php echo $item['celularOperario']; ?></td>
                                             <td class="text-center"><?php echo $item['emailOperario']; ?></td>
                                             <td class="text-center">
-                                            <a  href="" data-toggle="modal" data-target="#<?php echo $item['idOperario']; ?>">Editar</a> |  
+                                            <a  href="" data-toggle="modal" data-target="#<?php echo $item['idOperario']; ?>">Editar</a> |
                                             <a onclick="msjSweetBorrar()"href="operario_controller/remove/<?php echo ($item['idOperario']); ?>">Borrar</a>
                                             <!-- Modal para editar operario -->
                                                 <div id="<?php echo $item['idOperario']; ?>" class="modal fade text-left" role="dialog" data-backdrop="false" style="position: abolute;z-index:3 !important;background-color: rgba(0, 0, 0, 0.5);">
@@ -86,13 +86,13 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                 <label for="emailOperario">E-mail</label>
-                                                                <input required type="text" class="form-control border-input" id="emailOperario" name="emailOperario" value="<?php echo ($this->input->post('emailOperario') ? $this->input->post('emailOperario') : $item['emailOperario']); ?>" />
+                                                                <input required type="email" class="form-control border-input" id="emailOperario" name="emailOperario" value="<?php echo ($this->input->post('emailOperario') ? $this->input->post('emailOperario') : $item['emailOperario']); ?>" />
                                                                 <small class="form-text">Ingresa el e-mail del operario.</small>
                                                                 </div>
                                                        </div>
                                                       <div class="modal-footer">
                                                         <button type="submit" onclick="javascript:notificacionModificar();" class="btn btn-default btn-success">Modificar</button>
-                                                        <?php echo form_close(); ?> 
+                                                        <?php echo form_close(); ?>
                                                         <!--formulario-->
                                                         <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Cancelar</button>
                                                       </div>
@@ -143,13 +143,13 @@
         </div>
         <div class="form-group">
         <label for="emailOperario">E-mail</label>
-        <input type="email" class="form-control border-input" id="emailOperario" name="emailOperario" value="<?php echo $this->input->post('emailOperario'); ?>" />
+        <input required type="email" class="form-control border-input" id="emailOperario" name="emailOperario" value="<?php echo $this->input->post('emailOperario'); ?>" />
         <small class="form-text">Ingresa el e-mail del operario.</small>
         </div>
         </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-default btn-success" onclick="msjSweet()">Agregar</button>
-        <?php echo form_close(); ?> 
+        <?php echo form_close(); ?>
         <!--formulario-->
         <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Cancelar</button>
       </div>
@@ -171,7 +171,7 @@
       showConfirmButton: false,
       timer: 100000
      })}
-    
+
     function msjSweetBorrar(){
     Swal({
       //position: 'top-end',
@@ -181,5 +181,3 @@
       timer: 100000
      })}
 </script-->
-
-
