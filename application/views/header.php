@@ -27,7 +27,15 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
     <link href="/static/assets/css/themify-icons.css" rel="stylesheet">
-    
+
     <!--script y CSS-->
     <script src="static/assets/js/sweetalert2.all.min.js"></script>
     <script src="static/assets/js/jquery-3.2.1.min.js"></script>
+
+		<!--api de mapas-->
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
+		<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+	  integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+  	crossorigin=""></script>

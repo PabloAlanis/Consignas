@@ -51,7 +51,7 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-4 col-md-5">
+                    <div hidden class="col-lg-4 col-md-5">
                         <div class="card card-user">
                             <div class="image">
                                 <img src="/static/assets/img/background.jpg" alt="..."/>
@@ -148,7 +148,17 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-8 col-md-7">
+
+                    <!--mapa-->
+                    <div id="map" style="width: 100%;height: 580px;"></div>
+										<script>
+                      var map = L.map('map').setView([-45.8209,-67.5378],11,5);
+											L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',maxZoom: 18}).addTo(map);
+                      L.marker([-45.8209,-67.5378],{draggable: true}).addTo(map);
+											
+										</script>
+
+                    <div hidden class="col-lg-8 col-md-7">
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Edit Profile</h4>
@@ -245,5 +255,3 @@ But that's the difference in our opinions.</textarea>
                 </div>
             </div>
         </div>
-
-
