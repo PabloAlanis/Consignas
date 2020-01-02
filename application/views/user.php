@@ -8,7 +8,7 @@
                         <span class="icon-bar bar2"></span>
                         <span class="icon-bar bar3"></span>
                     </button>
-                    <a class="navbar-brand" href="#">User Profile</a>
+                    <a class="navbar-brand" href="#">Mapa</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -155,7 +155,8 @@
                       var map = L.map('map').setView([-45.8209,-67.5378],11,5);
 											L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',maxZoom: 18}).addTo(map);
                       L.marker([-45.8209,-67.5378],{draggable: true}).addTo(map);
-											
+											//archivo kml a mapa
+											omnivore.kml('/static/assets/a.kml').addTo(map);
 										</script>
 
                     <div hidden class="col-lg-8 col-md-7">

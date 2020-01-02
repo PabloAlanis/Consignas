@@ -47,8 +47,8 @@
                 </li>
                 <li class="<?php echo ($path == 'user' ? 'active':''); ?>">
                     <a href="user">
-                        <i class="ti-user"></i>
-                        <p>User Profile</p>
+                        <i class="ti-book"></i>
+                        <p>Mapa</p>
                     </a>
                 </li>
                 <!--<li class="<?php echo ($path == 'table' ? 'active':''); ?>">
