@@ -9,11 +9,11 @@
                         <span class="icon-bar bar2"></span>
                         <span class="icon-bar bar3"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Dashboard</a>
+                    <a class="navbar-brand" href="#">Inicio</a>
                 </div>
 
                 <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right"> 
+                    <ul class="nav navbar-nav navbar-right">
                         <?php $this->load->view( '/common/auth'); ?>
                     </ul>
 
@@ -126,8 +126,8 @@
                         </div>
                     </div>
                 </div>
-                
-                
+
+
                 <div class="row">
                     <div class="col-lg-3 col-sm-6">
                         <div class="card">
@@ -255,10 +255,10 @@
                         </div>
                     </div>
                 </div>
-                
-                
-                
-                
+
+
+
+
                 <div hidden class="row">
 
                     <div class="col-md-12">
@@ -333,10 +333,3 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
