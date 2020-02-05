@@ -6,7 +6,7 @@
     <?php $this->load->view( '/header'); ?>
 
 </head>
-<body>
+<body onload="startTime();">
 
 <div class="wrapper">
     <div class="sidebar" data-background-color="black" data-active-color="info">
@@ -30,7 +30,7 @@
     </div>
 
     <div class="main-panel">
-        
+
         <?php echo $content; ?>
 
         <footer class="footer">
@@ -71,5 +71,24 @@
 
 	<!-- Theme header -->
     <?php $this->load->view( '/footer'); ?>
-        
+
 </html>
+
+<!--reloj js-->
+<script>
+function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =
+  h + ":" + m + ":" + s;
+  var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+</script>
