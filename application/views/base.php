@@ -75,7 +75,9 @@ function startTime() {
   var s = today.getSeconds();
   m = checkTime(m);
   s = checkTime(s);
-  document.getElementById('txt').innerHTML =
+  document.getElementById('reloj').innerHTML =
+  h + ":" + m + ":" + s;
+  document.getElementById('relojA').innerHTML =
   h + ":" + m + ":" + s;
   var t = setTimeout(startTime, 500);
 }

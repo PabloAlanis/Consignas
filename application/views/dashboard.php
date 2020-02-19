@@ -87,7 +87,10 @@
                                     <div class="col-xs-7">
                                         <div class="numbers">
                                             <p>Hora</p>
-                                            <p id="txt"></p>
+                                            <script>
+                                            startTime();
+                                            </script>
+                                            <div id="relojA"></div>
                                         </div>
                                     </div>
                                 </div>

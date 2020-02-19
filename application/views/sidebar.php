@@ -73,7 +73,7 @@
                 <li class="<?php echo ($path == 'notifications' ? 'active':''); ?>">
                     <a  href="#">
                         <i class="ti-timer"></i>
-                        <p id="txt"></p>
+                        <p id="reloj"></p>
                     </a>
                 </li>
                 <!--reloj javascript-->
