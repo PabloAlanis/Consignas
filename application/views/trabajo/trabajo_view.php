@@ -257,6 +257,9 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title"><i class="ti-lock"></i> Autorización <?php echo $contador+1 ;echo "-"; echo date( "Y") ?> - <?php date_default_timezone_set('America/Buenos_Aires');echo date("d/m/Y - G:i ")?> </h4>
+
+        <h4><i class="ti-calendar"></i><?php date_default_timezone_set('America/Buenos_Aires');echo date("d/m/Y")?></h4>
+				<h4 style="display:inline;"><i class="ti-timer"></i><div id="relojA"></div></h4>
       </div>
       <div class="modal-body">
         <p>Ingresa los datos de la autorización.</p><br>
