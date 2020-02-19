@@ -1,4 +1,13 @@
-
+<script>//mensajes sweet al enviar formulario
+		function altaLinea(){
+		Swal({
+			//position: 'top-end',
+			type: 'success',
+			title: 'Linea Creada',
+			showConfirmButton: false,
+			timer: 100000
+		 })}
+</script>
 		<nav class="navbar navbar-default" style="position: relative;z-index:0 !important;">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -118,7 +127,7 @@
       <div class="modal-body">
         <p>Ingresa los datos de la linea.</p><br><br>
         <!--formulario-->
-        <?php echo form_open('linea_controller/add'); ?>
+        <?php echo form_open('linea_controller/add','id="formLinea"'); ?>
         <div class="form-group">
         <label for="nombreLinea">Nombre</label>
         <input required type="text" class="form-control border-input" id="nombreLinea" name="nombreLinea" value="<?php echo $this->input->post('nombreLinea'); ?>" />
@@ -137,6 +146,18 @@
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-default btn-success">Agregar</button>
+				<button type="reset" class="btn btn-default btn-info">En Blanco</button>
+
+				<script>//llama a sweetalert y manda el form
+					$( "#formLinea" ).submit(function( event ) {
+					altaLinea();
+					event.preventDefault();
+					setTimeout(function () {
+						$( "#formLinea" ).submit();
+					}, 1000);
+					});
+				</script>
+
         <?php echo form_close(); ?>
         <!--formulario-->
         <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Cancelar</button>
