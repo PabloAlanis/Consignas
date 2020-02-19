@@ -9,7 +9,7 @@
                         <span class="icon-bar bar2"></span>
                         <span class="icon-bar bar3"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Inicio</a>
+                    <h2>Inicio</h2>
                 </div>
 
                 <div class="collapse navbar-collapse">
@@ -70,6 +70,31 @@
                                     <hr />
                                     <div class="stats">
                                         <i class="ti-bookmark"></i> En total del Sistema.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-info text-center">
+                                            <i class="ti-timer"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>Hora</p>
+                                            <p id="txt"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr />
+                                    <div class="stats">
+                                        <i class="ti-bookmark"></i> Hora del Server.
                                     </div>
                                 </div>
                             </div>

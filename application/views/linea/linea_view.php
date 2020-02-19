@@ -8,14 +8,14 @@
                         <span class="icon-bar bar2"></span>
                         <span class="icon-bar bar3"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Lineas</a>
+                    <h2>Lineas</h2>
                     <div id="botones">
                      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="ti-pin-alt"></i> Agregar Linea</button>
                     <!--<a href="/linea_controller"><p class="">Logout</p></a>-->
                     </div>
                 </div>
                 <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right"> 
+                    <ul class="nav navbar-nav navbar-right">
                         <?php $this->load->view( '/common/auth'); ?>
                     </ul>
 
@@ -51,7 +51,7 @@
                                             <td class="text-center"><?php echo $item['abreviLinea']; ?></td>
                                             <td class="text-center"><?php echo $item['obsLinea']; ?></td>
                                             <td class="text-center">
-                                            <a  href="" data-toggle="modal" data-target="#<?php echo $item['idLinea']; ?>">Editar</a> |  
+                                            <a  href="" data-toggle="modal" data-target="#<?php echo $item['idLinea']; ?>">Editar</a> |
                                             <a href="linea_controller/remove/<?php echo ($item['idLinea']); ?>">Borrar</a>
                                             <!-- Modal para editar linea -->
                                                 <div id="<?php echo $item['idLinea']; ?>" class="modal fade text-left" role="dialog" data-backdrop="false" style="position: abolute;z-index:3 !important;background-color: rgba(0, 0, 0, 0.5);">
@@ -85,7 +85,7 @@
                                                       </div>
                                                       <div class="modal-footer">
                                                         <button type="submit" onclick="javascript:notificacionModificar();" class="btn btn-default btn-success">Modificar</button>
-                                                        <?php echo form_close(); ?> 
+                                                        <?php echo form_close(); ?>
                                                         <!--formulario-->
                                                         <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Cancelar</button>
                                                       </div>
@@ -137,7 +137,7 @@
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-default btn-success">Agregar</button>
-        <?php echo form_close(); ?> 
+        <?php echo form_close(); ?>
         <!--formulario-->
         <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Cancelar</button>
       </div>
@@ -153,4 +153,3 @@
 function notificacionModificar() {
 }
 </script>
-

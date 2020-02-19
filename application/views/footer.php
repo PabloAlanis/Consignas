@@ -45,7 +45,7 @@
 
             });
         </script>
-        
+
     <?php } ?>
 
      <?php if ($path == 'linea_view' ) { ?>
@@ -66,6 +66,5 @@
 
             });
         </script>
-        
-    <?php } ?>
 
+    <?php } ?>

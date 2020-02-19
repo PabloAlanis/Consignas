@@ -8,7 +8,7 @@
                         <span class="icon-bar bar2"></span>
                         <span class="icon-bar bar3"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Autorizaciones de Trabajo</a>
+                    <h2>Autorizaciones de Trabajo</h2>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -24,7 +24,7 @@
                     <a href="trabajo_controller" class="btn btn-success"><i class="ti-lock"></i> Mostrar todas las A.T</a>
                     <!--Boton para buscar trabajos por fecha-->
 
-                    <button type="submit" class="btn btn-success"><i class="ti-calendar"> </i> Buscar por fecha</button>
+                    <button type="submit" class="btn btn-black"><i class="ti-calendar"> </i> Buscar por fecha</button>
                     <input class="border-input" required type="date" name="horaInicioTrabajo" value="<?php echo $this->input->post('horaInicioTrabajo'); ?>" />
                     <?php echo form_close(); ?>
                     <!--Boton para buscar trabajos por fecha-->
@@ -148,7 +148,7 @@
                                                         <p><strong>Consigna:</strong> <?php echo $item['idConsigna']?></p>
                                                         </div>
                                                         <div class="form-group col-md-12 text-center">
-                                                        <p><strong>Linea:</strong> <?php echo $item['abreviLinea']?></p>
+                                                        <p><strong>Linea:</strong> <?php echo $item['abreviLinea']?> (<?php echo $item['nombreLinea']?> )</p>
                                                         </div>
                                                         <div class="form-group col-md-12 text-center">
                                                         <p><strong>Responsable:</strong> <?php echo $item['responsable']?><?php echo " ".$item['nombreResponsable']?></p>
@@ -162,8 +162,8 @@
                                                         </div>
                                                       </div>
 
-                                                      <div>
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                                      <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
                                                       </div>
                                                     </div>
 
@@ -333,3 +333,23 @@
 
   </div>
 </div>
+
+<script>
+
+function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =
+  h + ":" + m + ":" + s;
+
+  var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+</script>

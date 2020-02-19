@@ -8,10 +8,10 @@
                         <span class="icon-bar bar2"></span>
                         <span class="icon-bar bar3"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Consignas</a>
+                    <h2>Consignas</h2>
                 </div>
                 <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right"> 
+                    <ul class="nav navbar-nav navbar-right">
                         <?php $this->load->view( '/common/auth'); ?>
                     </ul>
 
@@ -20,7 +20,7 @@
                      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="ti-pin-alt"></i> Generar Consigna</button>
                     <a href="consigna_open_controller" class="btn btn-danger"><i class="ti-unlock"></i> Mostrar Consignas Abiertas</a>
                     <a href="consigna_controller" class="btn btn-success"><i class="ti-lock"></i> Mostrar todas las Consignas</a>
-                        
+
                     <br>
                     <!--<a href="/linea_controller"><p class="">Logout</p></a>-->
                     </div>
@@ -68,7 +68,7 @@
                                             <?php
                                              $fechaInicio=$item['horaInicioConsigna'];
                                              $Inicio = date("d-m-Y / G:i", strtotime($fechaInicio));
-                                             
+
                                              if (empty($item['horaFinConsigna'])){
                                                  $fechaFin=$item['horaFinConsigna'];
                                                  $Fin =$fechaFin;
@@ -80,39 +80,39 @@
                                             <td class="text-center"><?php echo $Inicio; ?></td>
                                             <!--<td class="text-center"><?php echo $item['horaInicioConsigna']; ?></td>
                                             <td class="text-center"><?php echo $item['horaFinConsigna']; ?></td>-->
-                                            <td class="text-center"><?php echo $Fin; ?></td> 
+                                            <td class="text-center"><?php echo $Fin; ?></td>
                                             <td class="text-center"><?php echo $item['responsable']; ?></td>
                                             <td class="text-center"><?php echo $item['apellidoOperario']; ?></td>
-                                            
-                                              
+
+
                                              <?php
                                              if (empty($item['horaFinConsigna'])){
                                                  echo "<td class='text-center danger'><i class='ti-unlock'></i> Abierta</td>";
                                              }else{
                                                  echo "<td class='text-center success'><i class='ti-lock'></i> Cerrada</td>";
                                              }
-                                             ?>  
+                                             ?>
                                             <!--<td class="text-center"><?php echo $item['descripcionConsigna']; ?></td>-->
-                                            <td class="text-center"> 
+                                            <td class="text-center">
                                             <a  href="" data-toggle="modal" data-target="#<?php echo $item['idConsigna']; ?>Ver">Ver</a>
-                                            
+
                                              <?php
                                              if (empty($item['horaFinConsigna'])){
                                                  echo " | <a href='' data-toggle='modal' data-target='#".$item['idConsigna']."'>Cerrar</a>";
                                              }
-                                             ?> 
+                                             ?>
                                             <!-- Modal para ver consigna -->
                                                 <div id="<?php echo $item['idConsigna']; ?>Ver" class="modal fade text-left" role="dialog" data-backdrop="false" style="position: abolute;z-index:3 !important;background-color: rgba(0, 0, 0, 0.5);">
                                                   <div class="modal-dialog">
                                                     <!-- Modal content-->
                                                     <div class="modal-content">
-                                                        
+
                                                       <div class="modal-header">
                                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                         <h4 class="modal-title"><i class="ti-pin-alt"></i> Detalles de la Consigna <?php echo $item['idConsigna']?></h4>
                                                         <p>Estos son los datos de la Consigna</p>
                                                       </div>
-                                                        
+
                                                       <div class="modal-body">
                                                         <div class="form-group col-md-12 text-center">
                                                         <p><strong>ID:</strong> <?php echo $item['idConsigna']?></p>
@@ -122,7 +122,7 @@
                                                         </div>
                                                         <div class="form-group col-md-12 text-center">
                                                         <p><strong>Fin:</strong> <?php echo $Fin;?></p>
-                                                        </div>                                                                                
+                                                        </div>
                                                         <div class="form-group col-md-12 text-center">
                                                         <p><strong>Responsable:</strong> <?php echo $item['responsable']?><?php echo " ".$item['nombreResponsable']?></p>
                                                         </div>
@@ -134,16 +134,16 @@
                                                         <textarea readonly class="form-control"><?php echo $item['descripcionConsigna']?></textarea>
                                                         </div>
                                                       </div>
-                                                        
+
                                                       <div>
                                                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                                                       </div>
                                                     </div>
-                                                
+
                                                   </div>
                                                 </div>
-                                                <!--fin modal-->    
-                                                
+                                                <!--fin modal-->
+
                                                 <!-- Modal para cerrar consigna -->
                                                 <div id="<?php echo $item['idConsigna']; ?>" class="modal fade text-left" role="dialog" data-backdrop="false" style="position: abolute;z-index:3 !important;background-color: rgba(0, 0, 0, 0.5);">
                                                   <div class="modal-dialog">
@@ -166,7 +166,7 @@
                                                         <label for="horaInicioTrabajo">Inicio</label>
                                                         <input  type="datetime" class="form-control border-input" id="horaInicioTrabajo" name="horaInicioTrabajo" value="<?php echo ($this->input->post('horaInicioTrabajo') ? $this->input->post('horaInicioTrabajo') : $item['horaInicioTrabajo']); ?>" />
                                                         </div>
-                                                        
+
                                                         <div hidden class="form-group col-md-4">
                                                         <label for="idConsigna">idConsigna</label>
                                                         <input  type="text" class="form-control border-input" id="idConsigna" name="idConsigna" value="<?php echo ($this->input->post('idConsigna') ? $this->input->post('idConsigna') : $item['idConsigna']); ?>" />
@@ -190,7 +190,7 @@
                                                       </div>
                                                       <div class="modal-footer">
                                                         <button type="submit" class="btn btn-danger">Cerrar Autorización</button>
-                                                        <?php echo form_close(); ?> 
+                                                        <?php echo form_close(); ?>
                                                         <!--formulario-->
                                                         <button type="button" class="btn btn-success" data-dismiss="modal">Todavia no</button>
                                                       </div>
@@ -225,59 +225,59 @@
         <p>Ingresa los datos de la consigna.</p><br>
         <!--formulario-->
             <?php echo form_open('consigna_controller/add'); ?>
-          
+
                 <div hidden>
-                    idConsigna : 
+                    idConsigna :
                     <input type="text" name="idConsigna" value="<?php echo $contador_consignas+1 ;echo "-"; echo date( "Y") ?><?php echo $this->input->post('idConsigna'); ?>" />
                 </div>
                 <div hidden>
-                    HoraInicioConsigna : 
+                    HoraInicioConsigna :
                     <input type="datetime" name="horaInicioConsigna" value="<?php echo date("Y/m/d G:i:h ")?><?php echo $this->input->post('horaInicioConsigna'); ?>" />
-                </div>              
-          
-                
-          
+                </div>
+
+
+
                 <div class="form-group col-md-6">
                 <label for="responsableConsigna">Responsable</label>
                 <select required name="responsableConsigna" id="responsableConsigna" class="form-control border-input">
                 <option selected="selected" disabled="disabled"></option>
                 <?php foreach ($operarios as $operario)
-                  echo '<option value="'.$operario['idOperario'].'">'.$operario['nombreOperario']." ".$operario['apellidoOperario'].'</option>';   
+                  echo '<option value="'.$operario['idOperario'].'">'.$operario['nombreOperario']." ".$operario['apellidoOperario'].'</option>';
                 ?>
                 </select>
-                <small class="form-text">Selecciona al responsable del trabajo.</small>    
+                <small class="form-text">Selecciona al responsable del trabajo.</small>
                 </div>
                 <div class="form-group col-md-6">
                 <label for="operadorConsigna">Operario</label>
                 <select required name="operadorConsigna" id="operadorConsigna" class="form-control border-input">
                 <option selected="selected" disabled="disabled"></option>
                 <?php foreach ($operarios as $operario)
-                  echo '<option value="'.$operario['idOperario'].'">'.$operario['nombreOperario']." ".$operario['apellidoOperario'].'</option>';   
+                  echo '<option value="'.$operario['idOperario'].'">'.$operario['nombreOperario']." ".$operario['apellidoOperario'].'</option>';
                 ?>
                 </select>
-                <small class="form-text">Selecciona al operador.</small>    
+                <small class="form-text">Selecciona al operador.</small>
                 </div>
-          
+
                 <div class="form-group">
                 <label>Carga las lineas involucradas:</label><br>
                 <select required name="idLinea" id="idLinea" class="form-control border-input">
                 <option selected="selected" disabled="disabled"></option>
                 <!--<option value="">No es sobre ninguna Linea</option>    -->
                 <?php foreach ($linea as $lineas)
-                  echo '<option value="'.$lineas['idLinea'].'">'.$lineas['abreviLinea'].'</option>';   
+                  echo '<option value="'.$lineas['idLinea'].'">'.$lineas['abreviLinea'].'</option>';
                 ?>
-                </select><button class="btn btn-success"><i class="ti-plus"></i> Agregar</button>      
+                </select><button class="btn btn-success"><i class="ti-plus"></i> Agregar</button>
                 </div>
-          
+
                 <div class="form-group">
-                <label for="descripcionConsigna">Descripción</label>: 
+                <label for="descripcionConsigna">Descripción</label>:
                 <textarea class="form-control border-input" name="descripcionConsigna" id="descripcionConsigna" value="<?php echo $this->input->post('descripcionConsigna'); ?>"></textarea>
-                <small class="form-text">Ingresa los detalles de la consigna.</small>  
+                <small class="form-text">Ingresa los detalles de la consigna.</small>
                 </div>
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-success">Generar</button>
-        <?php echo form_close(); ?> 
+        <?php echo form_close(); ?>
         <!--formulario-->
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
       </div>
@@ -285,12 +285,3 @@
 
   </div>
 </div>
-
-
-
-
-
-
-
-
-

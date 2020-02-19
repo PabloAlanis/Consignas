@@ -8,7 +8,7 @@
                         <span class="icon-bar bar2"></span>
                         <span class="icon-bar bar3"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Operarios</a>
+                    <h2>Operarios</h2>
                     <div id="botones">
                      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="ti-pin-alt"></i> Agregar Operario</button>
                     <!--<a href="/linea_controller"><p class="">Logout</p></a>-->

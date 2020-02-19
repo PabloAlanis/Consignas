@@ -68,12 +68,13 @@
                         <i class="ti-pencil-alt2"></i>
                         <p>Icons</p>
                     </a>
-                </li>
-                <li class="<?php echo ($path == 'notifications' ? 'active':''); ?>">
-                    <a href="notifications">
-                        <i class="ti-bell"></i>
-                        <p>Notifications</p>
-                    </a>
                 </li>-->
-                <li><h4 class="text-center" id="txt"></h4></li>
+                <!--reloj javascript-->
+                <li class="<?php echo ($path == 'notifications' ? 'active':''); ?>">
+                    <a  href="#">
+                        <i class="ti-timer"></i>
+                        <p id="txt"></p>
+                    </a>
+                </li>
+                <!--reloj javascript-->
             </ul>
