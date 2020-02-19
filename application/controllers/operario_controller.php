@@ -19,12 +19,12 @@ class Operario_controller extends CI_Controller
 		$this->lang->load('auth');
         //
 	}
-	
-	public function index( $path_1=null, 
-						   $path_2=NULL, 
-						   $path_3=NULL, 
-						   $path_4=NULL, 
-						   $path_5=NULL )   
+
+	public function index( $path_1=null,
+						   $path_2=NULL,
+						   $path_3=NULL,
+						   $path_4=NULL,
+						   $path_5=NULL )
 	{
 
 		//bloque ion_auth
@@ -41,18 +41,18 @@ class Operario_controller extends CI_Controller
 		else
 		{
             $data = array();
-            
+
 			$data['title'] = $this->lang->line('index_heading');
-			
+
 			// set the flash data error message if there is one
 			$data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 
 			//list the users
 			$data['users'] = $this->ion_auth->users()->result();
-			
+
 			//USAGE NOTE - you can do more complicated queries like this
 			//$this->data['users'] = $this->ion_auth->where('field', 'value')->users()->result();
-			
+
 			foreach ($data['users'] as $k => $user)
 			{
 				$data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
@@ -70,13 +70,13 @@ class Operario_controller extends CI_Controller
                 $path_1 = 'operario/operario_view';
             }
             //carga de las lineas BD
-            $all_operarios = $this->operario_model->get_operarios();   
+            $all_operarios = $this->operario_model->get_operarios();
             $data['operarios'] = $all_operarios;
-            $count_operarios = $this->operario_model->count_operario();   
+            $count_operarios = $this->operario_model->count_operario();
             $data['cant_operarios'] = $count_operarios;
-            $trabajos_abiertos = $this->trabajo_model->contar_trabajos_abiertos(); 
+            $trabajos_abiertos = $this->trabajo_model->contar_trabajos_abiertos();
             //cargo las consignas abiertas
-            $consigna_abiertos = $this->consigna_model->contar_consigna_abiertos();   
+            $consigna_abiertos = $this->consigna_model->contar_consigna_abiertos();
             $data['consigna_abiertos'] = $consigna_abiertos;
             //
             $data['trabajo_abiertos'] = $trabajos_abiertos;
@@ -88,44 +88,44 @@ class Operario_controller extends CI_Controller
             return;
         }
     }
-    
+
      /*
      * Adding a new operario
      */
     function add()
-    {   
-        if(isset($_POST) && count($_POST) > 0)     
-        {   
-            $params = array(
+    {
+        if(isset($_POST) && count($_POST) > 0)
+        {
+        $params = array(
 				'nombreOperario' => $this->input->post('nombreOperario'),
 				'apellidoOperario' => $this->input->post('apellidoOperario'),
 				'emailOperario' => $this->input->post('emailOperario'),
 				'celularOperario' => $this->input->post('celularOperario'),
 				//'estadoOperario' => $this->input->post('estadoOperario'),
             );
-            
+
             $operario_id = $this->operario_model->add_operario($params);
-            redirect('operario_controller');
+            redirect('operario_controller', 'refresh');
         }
         else
-        {            
+        {
             $data['_view'] = 'operario/add';
             $this->load->view('layouts/main',$data);
         }
-    }  
+    }
 
     /*
      * Editing a operario
      */
     function edit($idOperario)
-    {   
+    {
         // check if the operario exists before trying to edit it
         $data['operario'] = $this->operario_model->get_operario($idOperario);
-        
+
         if(isset($data['operario']['idOperario']))
         {
-            if(isset($_POST) && count($_POST) > 0)     
-            {   
+            if(isset($_POST) && count($_POST) > 0)
+            {
                 $params = array(
 					'nombreOperario' => $this->input->post('nombreOperario'),
 					'apellidoOperario' => $this->input->post('apellidoOperario'),
@@ -134,7 +134,7 @@ class Operario_controller extends CI_Controller
 					//'estadoOperario' => $this->input->post('estadoOperario'),
                 );
 
-                $this->operario_model->update_operario($idOperario,$params);            
+                $this->operario_model->update_operario($idOperario,$params);
                 redirect('operario_controller');
             }
             else
@@ -145,7 +145,7 @@ class Operario_controller extends CI_Controller
         }
         else
             show_error('The operario you are trying to edit does not exist.');
-    } 
+    }
 
     /*
      * Deleting operario
@@ -163,9 +163,6 @@ class Operario_controller extends CI_Controller
         else
             show_error('The operario you are trying to delete does not exist.');
     }
-    
-    
+
+
 }
-
-
-

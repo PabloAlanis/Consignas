@@ -1,4 +1,24 @@
-    <!--<script src="static/assets/js/sweetalert2.all.min.js"></script>-->
+<script>//mensajes sweet al enviar formulario
+    function altaOperario(){
+    Swal({
+      //position: 'top-end',
+      type: 'success',
+      title: 'Operario creado',
+      showConfirmButton: false,
+      timer: 100000
+     })}
+
+    function msjSweetBorrar(){
+    Swal({
+      //position: 'top-end',
+      type: 'error',
+      title: 'Operario eliminado.',
+      showConfirmButton: false,
+      timer: 100000
+     })}
+</script>
+
+		<!--<script src="static/assets/js/sweetalert2.all.min.js"></script>-->
 		<nav class="navbar navbar-default" style="position: relative;z-index:0 !important;">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -125,7 +145,7 @@
       <div class="modal-body">
         <p>Ingresa los datos del operario.</p><br>
         <!--formulario-->
-        <?php echo form_open('operario_controller/add'); ?>
+        <?php echo form_open('operario_controller/add','id="target"'); ?>
 	    <div class="form-group">
         <label for="nombreOperario">Nombre</label>
         <input required type="text" class="form-control border-input" id="nombreOperario" name="nombreOperario" value="<?php echo $this->input->post('nombreOperario'); ?>" />
@@ -148,8 +168,20 @@
         </div>
         </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-default btn-success" onclick="msjSweet()">Agregar</button>
-        <?php echo form_close(); ?>
+        <button type="submit" class="btn btn-default btn-success">Agregar</button>
+				<button type="reset" class="btn btn-default btn-info">En Blanco</button>
+
+        <script>//llama a sweetalert y manda el form
+          $( "#target" ).submit(function( event ) {
+          altaOperario();
+          event.preventDefault();
+          setTimeout(function () {
+            $( "#target" ).submit();
+          }, 1000);
+          });
+        </script>
+
+        <?php echo form_close();?>
         <!--formulario-->
         <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Cancelar</button>
       </div>
@@ -157,27 +189,3 @@
 
   </div>
 </div>
-
-
-
-
-
-<!--script>
-    function msjSweet(){
-    Swal({
-      //position: 'top-end',
-      type: 'success',
-      title: 'Operario creado',
-      showConfirmButton: false,
-      timer: 100000
-     })}
-
-    function msjSweetBorrar(){
-    Swal({
-      //position: 'top-end',
-      type: 'error',
-      title: 'Operario eliminado.',
-      showConfirmButton: false,
-      timer: 100000
-     })}
-</script-->
