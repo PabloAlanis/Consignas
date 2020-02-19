@@ -105,7 +105,7 @@ class Operario_controller extends CI_Controller
             );
 
             $operario_id = $this->operario_model->add_operario($params);
-            redirect('operario_controller', 'refresh');
+            redirect('operario_controller');
         }
         else
         {

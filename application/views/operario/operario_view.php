@@ -182,6 +182,7 @@
         </script>
 
         <?php echo form_close();?>
+
         <!--formulario-->
         <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Cancelar</button>
       </div>

@@ -1,3 +1,13 @@
+<script>//mensajes sweet al enviar formulario
+		function altaTrabajo(){
+		Swal({
+			//position: 'top-end',
+			type: 'success',
+			title: 'Autorizacion de Trabajo Creada',
+			showConfirmButton: false,
+			timer: 100000
+		 })}
+</script>
 
 		<nav class="navbar navbar-default" style="position: relative;z-index:0 !important;">
             <div class="container-fluid">
@@ -251,7 +261,7 @@
       <div class="modal-body">
         <p>Ingresa los datos de la autorización.</p><br>
         <!--formulario-->
-            <?php echo form_open('trabajo_controller/add'); ?>
+            <?php echo form_open('trabajo_controller/add','id="formTrabajo"'); ?>
 
                 <div hidden>
                     idTrabajo :
@@ -325,6 +335,18 @@
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-success">Generar</button>
+				<button type="reset" class="btn btn-default btn-info">En Blanco</button>
+
+				<script>//llama a sweetalert y manda el form
+          $( "#formTrabajo" ).submit(function( event ) {
+          altaTrabajo();
+          event.preventDefault();
+          setTimeout(function () {
+            $( "#formTrabajo" ).submit();
+          }, 1000);
+          });
+        </script>
+
         <?php echo form_close(); ?>
         <!--formulario-->
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
