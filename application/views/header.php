@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width" />
 
 
+
     <!-- Bootstrap core CSS     -->
     <link href="/static/assets/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -31,6 +32,13 @@
     <!--script y CSS-->
     <script src="static/assets/js/sweetalert2.all.min.js"></script>
     <script src="static/assets/js/jquery-3.2.1.min.js"></script>
+		<!--tablas interactivas-->
+		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+
+
+
+
 
 		<!--api de mapas-->
 		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"

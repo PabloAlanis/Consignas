@@ -27,6 +27,10 @@
 	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 	<script src="/static/assets/js/demo.js"></script>
 
+  <!--tablas interactivas-->
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+
     <?php if ($path == 'dashboard' ) { ?>
 
         <script type="text/javascript">
