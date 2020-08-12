@@ -28,8 +28,10 @@
 	<script src="/static/assets/js/demo.js"></script>
 
   <!--tablas interactivas-->
-  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+  <link rel="stylesheet" type="text/css" href="/static/assets/DataTables/datatables.min.css"/>
+  <script type="text/javascript" src="/static/assets/DataTables/datatables.min.js"></script>
+
+
 
     <?php if ($path == 'dashboard' ) { ?>
 

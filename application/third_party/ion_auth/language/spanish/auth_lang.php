@@ -8,7 +8,7 @@
 *
 * Author: Daniel Davis
 *         @ourmaninjapan
-* 
+*
 * Author: Josue Ibarra
 *         @josuetijuana
 *
@@ -25,12 +25,12 @@ $lang['error_csrf'] = 'Este formulario no pasó nuestras pruebas de seguridad.';
 
 // Login
 $lang['login_heading']         = 'Ingresar';
-$lang['login_subheading']      = 'Por favor, introduce tu email/usuario y contraseña.';
-$lang['login_identity_label']  = 'Email/Usuario:';
-$lang['login_password_label']  = 'Contraseña:';
+$lang['login_subheading']      = 'Por favor, introduci tu e-mail y tu contraseña.';
+$lang['login_identity_label']  = 'e-mail';
+$lang['login_password_label']  = 'Contraseña';
 $lang['login_remember_label']  = 'Recuérdame:';
 $lang['login_submit_btn']      = 'Ingresar';
-$lang['login_forgot_password'] = '¿Has olvidado tu contraseña?';
+$lang['login_forgot_password'] = '¿Olvidaste tu contraseña?';
 
 // Index
 $lang['index_heading']           = 'Usuarios';
@@ -156,4 +156,3 @@ $lang['email_activate_link']       = 'Activar tu cuenta';
 $lang['email_forgot_password_heading']    = 'Reestablecer contraseña para %s';
 $lang['email_forgot_password_subheading'] = 'Por favor ingresa en este link para %s.';
 $lang['email_forgot_password_link']       = 'Restablecer Tu Contraseña';
-
